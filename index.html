@@ -1,1056 +1,626 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-
   <meta charset="UTF-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Fiesta de Halloween 🎃</title>
 
-
   <style>
-
     * {
       box-sizing: border-box;
     }
 
-
     body {
-
       margin: 0;
-
       min-height: 100vh;
-
-      background: #09060d;
-
-      color: white;
-
-      font-family: Arial, sans-serif;
-
-      display: flex;
-
-      justify-content: center;
-
-      align-items: center;
-
-    }
-
-
-    .invitacion {
-
-      width: 100%;
-
-      max-width: 520px;
-
-      min-height: 100vh;
-
-      padding: 25px 18px;
-
-      text-align: center;
-
+      font-family: Arial, Helvetica, sans-serif;
       background:
-        radial-gradient(
-          circle at top,
-          #54206e 0%,
-          #160b20 38%,
-          #050505 100%
-        );
-
+        radial-gradient(circle at top, #32104f 0%, #14091f 35%, #09060d 75%);
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
     }
 
+    .contenedor {
+      width: 100%;
+      max-width: 600px;
+    }
 
-    /* =========================
-       ENCABEZADO
-    ========================= */
+    .tarjeta {
+      background: rgba(10, 8, 15, 0.95);
+      border: 2px solid #8b2be2;
+      border-radius: 25px;
+      padding: 30px 22px;
+      text-align: center;
+      box-shadow:
+        0 0 25px rgba(139, 43, 226, 0.35),
+        0 0 60px rgba(255, 94, 0, 0.12);
+    }
 
-    .luna {
-
+    .emoji-principal {
       font-size: 70px;
-
-      margin-top: 10px;
-
+      margin-bottom: 5px;
+      animation: flotar 3s ease-in-out infinite;
     }
 
+    @keyframes flotar {
+      0%, 100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-8px);
+      }
+    }
 
     h1 {
-
-      margin: 10px 0;
-
+      margin: 0;
       font-size: 42px;
-
-      line-height: 0.95;
-
-      color: #ff6a00;
-
-      text-shadow:
-        3px 3px 0 #7a00ff,
-        0 0 20px #ff4500;
-
+      color: #ff7b00;
+      text-shadow: 0 0 15px rgba(255, 123, 0, 0.6);
     }
-
 
     .subtitulo {
-
       font-size: 18px;
-
-      letter-spacing: 3px;
-
+      color: #d8b4fe;
+      margin: 10px 0 25px;
     }
-
-
-    /* =========================
-       DATOS
-    ========================= */
 
     .datos {
-
+      display: grid;
+      gap: 12px;
       margin: 25px 0;
-
-      padding: 18px;
-
-      border: 2px solid #ff6a00;
-
-      border-radius: 18px;
-
-      background: rgba(0, 0, 0, 0.55);
-
     }
-
 
     .dato {
-
-      font-size: 25px;
-
-      font-weight: bold;
-
-      margin: 10px;
-
+      background: rgba(139, 43, 226, 0.12);
+      border: 1px solid rgba(139, 43, 226, 0.45);
+      border-radius: 15px;
+      padding: 14px;
+      font-size: 17px;
     }
 
-
-    /* =========================
-       DISFRAZ
-    ========================= */
-
-    .disfraz {
-
-      background: #ff6a00;
-
-      color: #111;
-
-      padding: 15px;
-
-      border-radius: 14px;
-
-      font-size: 25px;
-
-      font-weight: 900;
-
-      margin: 20px 0;
-
-    }
-
-
-    .traje {
-
+    .dato strong {
+      display: block;
+      color: #ff9d3d;
       font-size: 20px;
-
-      line-height: 1.5;
-
-      margin: 15px 0;
-
+      margin-bottom: 4px;
     }
 
-
-    /* =========================
-       BOTONES
-    ========================= */
+    .nota {
+      background: rgba(255, 123, 0, 0.10);
+      border: 1px solid rgba(255, 123, 0, 0.45);
+      border-radius: 15px;
+      padding: 15px;
+      margin: 20px 0;
+      color: #ffe4c4;
+      line-height: 1.5;
+    }
 
     .botones {
-
-      display: flex;
-
-      flex-direction: column;
-
-      gap: 14px;
-
-      margin-top: 30px;
-
+      display: grid;
+      gap: 12px;
+      margin-top: 25px;
     }
-
 
     .boton {
-
-      width: 100%;
-
-      padding: 16px 25px;
-
       border: none;
-
-      border-radius: 50px;
-
-      color: white;
-
-      font-size: 20px;
-
+      border-radius: 14px;
+      padding: 16px;
+      font-size: 17px;
       font-weight: bold;
-
       cursor: pointer;
-
-      transition:
-        transform 0.2s ease,
-        box-shadow 0.2s ease;
-
+      transition: 0.2s;
+      color: white;
     }
-
 
     .boton:hover {
-
-      transform: scale(1.03);
-
+      transform: translateY(-2px);
+      filter: brightness(1.12);
     }
-
 
     .boton:active {
-
-      transform: scale(0.97);
-
+      transform: scale(0.98);
     }
-
-
-    /* =========================
-       ASISTIRÉ
-    ========================= */
 
     .asistire {
-
-      background: #25D366;
-
-      box-shadow:
-        0 0 25px #25D366;
-
+      background: linear-gradient(135deg, #ff7b00, #ff3d00);
+      box-shadow: 0 0 18px rgba(255, 94, 0, 0.3);
     }
-
-
-    /* =========================
-       NO PODRÉ ASISTIR
-    ========================= */
 
     .no-asistire {
-
-      background: #8b1e1e;
-
-      box-shadow:
-        0 0 20px rgba(255, 40, 40, 0.5);
-
+      background: linear-gradient(135deg, #6b21a8, #4c1d95);
     }
 
-
-    /* =========================
-       VER UBICACIÓN
-    ========================= */
-
-    .ubicacion-boton {
-
-      background: #7a00ff;
-
-      box-shadow:
-        0 0 20px rgba(122, 0, 255, 0.6);
-
+    .ubicacion {
+      background: linear-gradient(135deg, #15803d, #166534);
     }
-
-
-    /* =========================
-       FORMULARIO
-    ========================= */
 
     .formulario {
-
       display: none;
-
-      margin-top: 25px;
-
-      padding: 25px 20px;
-
-      border-radius: 20px;
-
-      background:
-        rgba(0, 0, 0, 0.88);
-
-      border: 2px solid #7a00ff;
-
-      box-shadow:
-        0 0 25px rgba(122, 0, 255, 0.5);
-
+      margin-top: 20px;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 18px;
     }
-
 
     .formulario h2 {
-
-      color: #ff6a00;
-
       margin-top: 0;
-
-      font-size: 24px;
-
+      color: #ff9d3d;
     }
 
-
-    .formulario p {
-
-      line-height: 1.5;
-
-      color: #ddd;
-
-    }
-
-
-    .formulario input {
-
+    input {
       width: 100%;
-
       padding: 15px;
-
-      margin: 15px 0;
-
-      border: 2px solid #ff6a00;
-
       border-radius: 12px;
-
-      background: #17121c;
-
+      border: 1px solid #6b21a8;
+      background: #130d1b;
       color: white;
-
-      font-size: 17px;
-
+      font-size: 16px;
       outline: none;
-
+      margin-bottom: 12px;
     }
 
-
-    .formulario input:focus {
-
-      border-color: #25D366;
-
-      box-shadow:
-        0 0 10px rgba(37, 211, 102, 0.5);
-
+    input:focus {
+      border-color: #ff7b00;
+      box-shadow: 0 0 10px rgba(255, 123, 0, 0.25);
     }
-
-
-    /* =========================
-       CONFIRMAR
-    ========================= */
 
     .confirmar {
-
       width: 100%;
-
-      padding: 15px;
-
-      border: none;
-
-      border-radius: 30px;
-
-      background: #25D366;
-
-      color: white;
-
-      font-size: 18px;
-
-      font-weight: bold;
-
-      cursor: pointer;
-
+      background: linear-gradient(135deg, #16a34a, #15803d);
     }
 
-
-    /* =========================
-       CANCELAR
-    ========================= */
-
-    .cerrar {
-
+    .cancelar {
       width: 100%;
-
-      padding: 12px;
-
-      border: none;
-
-      background: transparent;
-
-      color: #aaa;
-
-      font-size: 15px;
-
+      background: #33303a;
       margin-top: 10px;
-
-      cursor: pointer;
-
     }
 
-
-    .cerrar:hover {
-
-      color: white;
-
-    }
-
-
-    /* =========================
-       ÉXITO
-    ========================= */
-
-    .exito {
-
+    .resultado {
       display: none;
+      margin-top: 20px;
+      padding: 20px;
+      border-radius: 18px;
+      font-weight: bold;
+      font-size: 18px;
+    }
 
+    .resultado.exito {
+      background: rgba(22, 163, 74, 0.15);
+      border: 1px solid #16a34a;
+      color: #86efac;
+    }
+
+    .resultado.no {
+      background: rgba(127, 29, 29, 0.20);
+      border: 1px solid #ef4444;
+      color: #fca5a5;
+    }
+
+    .pie {
       margin-top: 25px;
-
-      padding: 25px;
-
-      border-radius: 20px;
-
-      background:
-        rgba(20, 50, 25, 0.9);
-
-      border: 2px solid #25D366;
-
+      color: #9ca3af;
+      font-size: 13px;
     }
 
+    @media (max-width: 480px) {
+      body {
+        padding: 12px;
+      }
 
-    .exito h2 {
+      .tarjeta {
+        padding: 25px 16px;
+      }
 
-      color: #25D366;
+      h1 {
+        font-size: 34px;
+      }
 
-      margin-top: 0;
+      .emoji-principal {
+        font-size: 60px;
+      }
 
+      .dato {
+        font-size: 15px;
+      }
     }
-
-
-    .exito p {
-
-      line-height: 1.5;
-
-    }
-
-
-    /* =========================
-       NO ASISTIRÁ
-    ========================= */
-
-    .rechazo {
-
-      display: none;
-
-      margin-top: 25px;
-
-      padding: 25px;
-
-      border-radius: 20px;
-
-      background:
-        rgba(70, 15, 15, 0.9);
-
-      border: 2px solid #ff4444;
-
-    }
-
-
-    .rechazo h2 {
-
-      color: #ff6666;
-
-      margin-top: 0;
-
-    }
-
-
-    .rechazo p {
-
-      line-height: 1.5;
-
-    }
-
   </style>
-
 </head>
-
 
 <body>
 
+  <div class="contenedor">
 
-  <main class="invitacion">
+    <div class="tarjeta">
 
+      <div class="emoji-principal">🎃</div>
 
-    <!-- =========================
-         ENCABEZADO
-    ========================= -->
+      <h1>HALLOWEEN 2026</h1>
 
-    <div class="luna">
+      <div class="subtitulo">
+        Una noche que probablemente deberíamos olvidar... 👻
+      </div>
 
-      🎃👻🦇
+      <div class="datos">
 
-    </div>
+        <div class="dato">
+          <strong>📅 FECHA</strong>
+          6 de noviembre de 2026
+        </div>
 
+        <div class="dato">
+          <strong>🕖 HORA</strong>
+          7:00 PM
+        </div>
 
-    <div class="subtitulo">
+        <div class="dato">
+          <strong>📍 LUGAR</strong>
+          Tlalnepantla, Estado de México
+        </div>
 
-      ESTÁS INVITADO A LA
+        <div class="dato">
+          <strong>👹 CÓDIGO DE VESTIMENTA</strong>
+          Disfraz obligatorio
+        </div>
 
-    </div>
+      </div>
 
+      <div class="nota">
+        🍺 <strong>ES DE TRAJE</strong> 🍿<br>
+        Trae cerveza, botana, comida o algo para compartir.
+        <br><br>
+        <strong>¡Y NO OLVIDES TU DISFRAZ!</strong> 🎭
+      </div>
 
-    <h1>
+      <div class="botones">
 
-      FIESTA DE<br>
+        <button id="btnAsistire" class="boton asistire">
+          🎃 ASISTIRÉ
+        </button>
 
-      HALLOWEEN
+        <button id="btnNoAsistire" class="boton no-asistire">
+          👻 NO PODRÉ ASISTIR
+        </button>
 
-    </h1>
-
-
-    <!-- =========================
-         DATOS DEL EVENTO
-    ========================= -->
-
-    <section class="datos">
-
-      <div class="dato">
-
-        📅 6 DE NOVIEMBRE
+        <button id="btnUbicacion" class="boton ubicacion">
+          📍 VER UBICACIÓN
+        </button>
 
       </div>
 
 
-      <div class="dato">
+      <!-- FORMULARIO -->
 
-        🕖 7:00 PM
+      <div id="formulario" class="formulario">
+
+        <h2 id="tituloFormulario">
+          🎃 Confirmar asistencia
+        </h2>
+
+        <p>
+          Escribe tu nombre para registrar tu respuesta.
+        </p>
+
+        <input
+          type="text"
+          id="nombre"
+          placeholder="Tu nombre"
+          autocomplete="name"
+        >
+
+        <button id="btnConfirmar" class="boton confirmar">
+          ✅ CONFIRMAR
+        </button>
+
+        <button id="btnCerrar" class="boton cancelar">
+          ✖ CANCELAR
+        </button>
 
       </div>
 
-    </section>
 
+      <!-- RESULTADO -->
 
-    <!-- =========================
-         DISFRAZ
-    ========================= -->
+      <div id="resultadoExito" class="resultado exito">
+        🎃 ¡ASISTENCIA CONFIRMADA!<br><br>
+        ¡Nos vemos en Halloween!
+      </div>
 
-    <div class="disfraz">
-
-      🎭 DISFRAZ OBLIGATORIO 🎭
-
-    </div>
-
-
-    <div class="traje">
-
-      🍻 <strong>ES DE TRAJE</strong> 🍕
-
-      <br>
-
-      Trae cerveza, botana, comida
-
-      <br>
-
-      o algo para compartir.
-
-    </div>
-
-
-    <!-- =========================
-         BOTONES
-    ========================= -->
-
-    <div class="botones">
-
-
-      <!-- ASISTIRÉ -->
-
-      <button
-        type="button"
-        class="boton asistire"
-        id="btnAsistire">
-
-        🎃 ASISTIRÉ
-
-      </button>
-
-
-      <!-- NO PODRÉ ASISTIR -->
-
-      <button
-        type="button"
-        class="boton no-asistire"
-        id="btnNoAsistire">
-
-        👻 NO PODRÉ ASISTIR
-
-      </button>
-
-
-      <!-- VER UBICACIÓN -->
-
-      <button
-        type="button"
-        class="boton ubicacion-boton"
-        id="btnUbicacion">
-
-        📍 VER UBICACIÓN
-
-      </button>
-
-
-    </div>
-
-
-    <!-- =========================
-         FORMULARIO
-    ========================= -->
-
-    <div
-      id="formulario"
-      class="formulario">
-
-
-      <h2 id="tituloFormulario">
-
-        🎃 CONFIRMA TU ASISTENCIA
-
-      </h2>
-
-
-      <p id="textoFormulario">
-
-        Escribe tu nombre para confirmar.
-
-      </p>
-
-
-      <input
-        type="text"
-        id="nombre"
-        placeholder="Escribe tu nombre"
-        maxlength="50"
-        autocomplete="name"
-      >
-
-
-      <button
-        type="button"
-        class="confirmar"
-        id="btnConfirmar">
-
-        👻 CONFIRMAR
-
-      </button>
-
-
-      <button
-        type="button"
-        class="cerrar"
-        id="btnCerrar">
-
-        Cancelar
-
-      </button>
-
-
-    </div>
-
-
-    <!-- =========================
-         MENSAJE ASISTENCIA
-    ========================= -->
-
-    <div
-      id="exito"
-      class="exito">
-
-
-      <h2>
-
-        🎃 ¡ASISTENCIA CONFIRMADA!
-
-      </h2>
-
-
-      <p id="mensajeExito">
-
-        ¡Nos vemos en la fiesta!
-
-      </p>
-
-
-    </div>
-
-
-    <!-- =========================
-         MENSAJE NO ASISTENCIA
-    ========================= -->
-
-    <div
-      id="rechazo"
-      class="rechazo">
-
-
-      <h2>
-
-        👻 ¡QUÉ LÁSTIMA!
-
-      </h2>
-
-
-      <p id="mensajeRechazo">
-
+      <div id="resultadoNo" class="resultado no">
+        👻 ¡QUÉ LÁSTIMA!<br><br>
         Gracias por avisarnos.
+      </div>
 
-      </p>
 
+      <div class="pie">
+        🕷️ Halloween 2026 · Prepárate para una noche aterradora 🕷️
+      </div>
 
     </div>
 
+  </div>
 
-  </main>
-
-
-  <!-- =========================
-       JAVASCRIPT
-  ========================= -->
 
   <script>
 
+    /*
+      ==========================================
+      CONFIGURACIÓN
+      ==========================================
+    */
 
-    /* =====================================
-       GOOGLE APPS SCRIPT
-    ===================================== */
+    const URL_REGISTRO =
+      "https://script.google.com/macros/s/AKfycbzF0Q-7I_Wu6oDmbNBnzwtfRnDcJ7_g1ZDEGfbMynK8mVz9bY3vOV-G9WmlluiboKrjLg/exec";
 
-const URL_REGISTRO =
-  "https://script.google.com/macros/s/AKfycbzF0Q-7I_Wu6oDmbNBnzwtfRnDcJ7_g1ZDEGfbMynK8mVz9bY3vOV-G9WmlluiboKrjLg/exec";
 
-    
-    /* =====================================
-       GOOGLE MAPS
-    ===================================== */
+    const URL_MAPS =
+      "https://www.google.com/maps/search/?api=1&query=José+Ma.+Morelos+2%2C+Habitacional%2C+54020+Tlalnepantla%2C+México";
 
-         const URL_MAPS =
-  "https://www.google.com/maps/search/?api=1&query=José+Ma.+Morelos+2%2C+Habitacional%2C+54020+Tlalnepantla%2C+México";
 
-    /* =====================================
-       TIPO DE RESPUESTA
-    ===================================== */
+    /*
+      ==========================================
+      VARIABLES
+      ==========================================
+    */
 
     let tipoConfirmacion = "Sí";
 
 
-    /* =====================================
-       ASISTIRÉ
-    ===================================== */
+    /*
+      ==========================================
+      ELEMENTOS
+      ==========================================
+    */
 
-    document
-      .getElementById("btnAsistire")
-      .addEventListener("click", function() {
+    const btnAsistire =
+      document.getElementById("btnAsistire");
 
+    const btnNoAsistire =
+      document.getElementById("btnNoAsistire");
 
-        tipoConfirmacion = "Sí";
+    const btnUbicacion =
+      document.getElementById("btnUbicacion");
 
+    const formulario =
+      document.getElementById("formulario");
 
-        document
-          .getElementById("tituloFormulario")
-          .textContent =
-          "🎃 CONFIRMA TU ASISTENCIA";
+    const tituloFormulario =
+      document.getElementById("tituloFormulario");
 
+    const nombreInput =
+      document.getElementById("nombre");
 
-        document
-          .getElementById("textoFormulario")
-          .textContent =
-          "Escribe tu nombre para confirmar que asistirás.";
+    const btnConfirmar =
+      document.getElementById("btnConfirmar");
 
+    const btnCerrar =
+      document.getElementById("btnCerrar");
 
-        document
-          .getElementById("formulario")
-          .style.display = "block";
+    const resultadoExito =
+      document.getElementById("resultadoExito");
 
-
-        document
-          .getElementById("exito")
-          .style.display = "none";
-
-
-        document
-          .getElementById("rechazo")
-          .style.display = "none";
+    const resultadoNo =
+      document.getElementById("resultadoNo");
 
 
-        document
-          .getElementById("formulario")
-          .scrollIntoView({
+    /*
+      ==========================================
+      BOTÓN ASISTIRÉ
+      ==========================================
+    */
 
-            behavior: "smooth",
+    btnAsistire.addEventListener("click", function () {
 
-            block: "center"
+      tipoConfirmacion = "Sí";
 
-          });
+      tituloFormulario.textContent =
+        "🎃 Confirmar asistencia";
 
-      });
+      formulario.style.display = "block";
 
+      resultadoExito.style.display = "none";
+      resultadoNo.style.display = "none";
 
-    /* =====================================
-       NO PODRÉ ASISTIR
-    ===================================== */
+      nombreInput.value = "";
 
-    document
-      .getElementById("btnNoAsistire")
-      .addEventListener("click", function() {
+      nombreInput.focus();
 
-
-        tipoConfirmacion = "No";
-
-
-        document
-          .getElementById("tituloFormulario")
-          .textContent =
-          "👻 AVÍSANOS";
+    });
 
 
-        document
-          .getElementById("textoFormulario")
-          .textContent =
-          "Escribe tu nombre para avisarnos que no podrás asistir.";
+    /*
+      ==========================================
+      BOTÓN NO ASISTIRÉ
+      ==========================================
+    */
+
+    btnNoAsistire.addEventListener("click", function () {
+
+      tipoConfirmacion = "No";
+
+      tituloFormulario.textContent =
+        "👻 Confirmar que no podrás asistir";
+
+      formulario.style.display = "block";
+
+      resultadoExito.style.display = "none";
+      resultadoNo.style.display = "none";
+
+      nombreInput.value = "";
+
+      nombreInput.focus();
+
+    });
 
 
-        document
-          .getElementById("formulario")
-          .style.display = "block";
+    /*
+      ==========================================
+      BOTÓN UBICACIÓN
+      ==========================================
+    */
+
+    btnUbicacion.addEventListener("click", function () {
+
+      window.open(URL_MAPS, "_blank");
+
+    });
 
 
-        document
-          .getElementById("exito")
-          .style.display = "none";
+    /*
+      ==========================================
+      BOTÓN CANCELAR
+      ==========================================
+    */
+
+    btnCerrar.addEventListener("click", function () {
+
+      formulario.style.display = "none";
+
+      nombreInput.value = "";
+
+    });
 
 
-        document
-          .getElementById("rechazo")
-          .style.display = "none";
+    /*
+      ==========================================
+      CONFIRMAR RESPUESTA
+      ==========================================
+    */
+
+    btnConfirmar.addEventListener("click", function () {
+
+      const nombre =
+        nombreInput.value.trim();
 
 
-        document
-          .getElementById("formulario")
-          .scrollIntoView({
+      /*
+        VALIDAR NOMBRE
+      */
 
-            behavior: "smooth",
+      if (nombre === "") {
 
-            block: "center"
+        alert("👻 Escribe tu nombre primero.");
 
-          });
+        nombreInput.focus();
 
-      });
+        return;
+
+      }
 
 
-    /* =====================================
-       VER UBICACIÓN
-    ===================================== */
+      /*
+        DESHABILITAR BOTÓN
+      */
 
-    document
-      .getElementById("btnUbicacion")
-      .addEventListener("click", function() {
+      btnConfirmar.disabled = true;
 
-        window.open(
-          URL_MAPS,
-          "_blank"
+      btnConfirmar.textContent =
+        "⏳ GUARDANDO...";
+
+
+      /*
+        CREAR DATOS
+      */
+
+      const datos =
+        new URLSearchParams();
+
+      datos.append(
+        "nombre",
+        nombre
+      );
+
+      datos.append(
+        "confirmacion",
+        tipoConfirmacion
+      );
+
+
+      /*
+        ENVIAR A GOOGLE APPS SCRIPT
+      */
+
+      fetch(URL_REGISTRO, {
+
+        method: "POST",
+
+        mode: "no-cors",
+
+        headers: {
+          "Content-Type":
+            "application/x-www-form-urlencoded"
+        },
+
+        body: datos.toString()
+
+      })
+      .then(function () {
+
+        mostrarResultado();
+
+      })
+      .catch(function (error) {
+
+        console.error(
+          "Error al enviar:",
+          error
         );
 
-      });
-
-
-    /* =====================================
-       CANCELAR
-    ===================================== */
-
-    document
-      .getElementById("btnCerrar")
-      .addEventListener("click", function() {
-
-        document
-          .getElementById("formulario")
-          .style.display = "none";
-
-      });
-
-
-    /* =====================================
-       CONFIRMAR
-    ===================================== */
-
-    document
-      .getElementById("btnConfirmar")
-      .addEventListener("click", function() {
-
-
-        const campo =
-          document.getElementById("nombre");
-
-
-        const nombre =
-          campo.value.trim();
-
-
-        /* VALIDAR */
-
-        if (nombre === "") {
-
-          alert(
-            "Por favor escribe tu nombre 🎃"
-          );
-
-          campo.focus();
-
-          return;
-
-        }
-
-
-        /* =================================
-           PREPARAR DATOS
-        ================================= */
-
-        const datos =
-          new URLSearchParams();
-
-
-        datos.append(
-          "nombre",
-          nombre
+        alert(
+          "⚠️ Ocurrió un problema al enviar la respuesta."
         );
 
+        btnConfirmar.disabled = false;
 
-        datos.append(
-          "confirmacion",
-          tipoConfirmacion
-        );
-
-
-        /* =================================
-           ENVIAR A GOOGLE SHEETS
-        ================================= */
-
-        fetch(URL_REGISTRO, {
-
-          method: "POST",
-
-          mode: "no-cors",
-
-          headers: {
-
-            "Content-Type":
-              "application/x-www-form-urlencoded"
-
-          },
-
-          body:
-            datos.toString()
-
-        });
-
-
-        /* =================================
-           SI ASISTE
-        ================================= */
-
-        if (tipoConfirmacion === "Sí") {
-
-
-          document
-            .getElementById("mensajeExito")
-            .innerHTML =
-
-            "¡Gracias, <strong>" +
-            nombre +
-            "</strong>! 👻" +
-
-            "<br><br>" +
-
-            "Tu asistencia quedó registrada.";
-
-
-          document
-            .getElementById("formulario")
-            .style.display = "none";
-
-
-          document
-            .getElementById("exito")
-            .style.display = "block";
-
-
-          document
-            .getElementById("exito")
-            .scrollIntoView({
-
-              behavior: "smooth",
-
-              block: "center"
-
-            });
-
-
-        }
-
-
-        /* =================================
-           SI NO ASISTE
-        ================================= */
-
-        else {
-
-
-          document
-            .getElementById("mensajeRechazo")
-            .innerHTML =
-
-            "Gracias por avisarnos, " +
-
-            "<strong>" +
-            nombre +
-            "</strong>." +
-
-            "<br><br>" +
-
-            "Sentiremos que no puedas acompañarnos. 👻";
-
-
-          document
-            .getElementById("formulario")
-            .style.display = "none";
-
-
-          document
-            .getElementById("rechazo")
-            .style.display = "block";
-
-
-          document
-            .getElementById("rechazo")
-            .scrollIntoView({
-
-              behavior: "smooth",
-
-              block: "center"
-
-            });
-
-        }
+        btnConfirmar.textContent =
+          "✅ CONFIRMAR";
 
       });
+
+    });
+
+
+    /*
+      ==========================================
+      MOSTRAR RESULTADO
+      ==========================================
+    */
+
+    function mostrarResultado() {
+
+      formulario.style.display = "none";
+
+      if (tipoConfirmacion === "Sí") {
+
+        resultadoExito.style.display =
+          "block";
+
+        resultadoNo.style.display =
+          "none";
+
+      } else {
+
+        resultadoNo.style.display =
+          "block";
+
+        resultadoExito.style.display =
+          "none";
+
+      }
+
+      btnConfirmar.disabled = false;
+
+      btnConfirmar.textContent =
+        "✅ CONFIRMAR";
+
+    }
 
   </script>
 
-
 </body>
-
 </html>
