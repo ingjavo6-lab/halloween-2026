@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -42,6 +41,17 @@
     .luna {
       font-size: 70px;
       margin-top: 10px;
+      animation: flotar 3s ease-in-out infinite;
+    }
+
+    @keyframes flotar {
+      0%, 100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-8px);
+      }
     }
 
     h1 {
@@ -49,6 +59,7 @@
       font-size: 42px;
       line-height: 0.95;
       color: #ff6a00;
+
       text-shadow:
         3px 3px 0 #7a00ff,
         0 0 20px #ff4500;
@@ -63,9 +74,14 @@
     .datos {
       margin: 25px 0;
       padding: 18px;
+
       border: 2px solid #ff6a00;
       border-radius: 18px;
+
       background: rgba(0, 0, 0, 0.55);
+
+      box-shadow:
+        0 0 20px rgba(255, 106, 0, 0.25);
     }
 
     .dato {
@@ -77,11 +93,18 @@
     .disfraz {
       background: #ff6a00;
       color: #111;
+
       padding: 15px;
+
       border-radius: 14px;
+
       font-size: 25px;
       font-weight: 900;
+
       margin: 20px 0;
+
+      box-shadow:
+        0 0 25px rgba(255, 106, 0, 0.35);
     }
 
     .traje {
@@ -93,9 +116,15 @@
     .ubicacion {
       margin-top: 20px;
       padding: 18px;
+
       border-radius: 18px;
+
       background: rgba(30, 10, 40, 0.85);
+
       border: 1px solid #7a00ff;
+
+      box-shadow:
+        0 0 20px rgba(122, 0, 255, 0.25);
     }
 
     .ubicacion h2 {
@@ -111,66 +140,63 @@
 
     .boton {
       display: inline-block;
+
       margin-top: 25px;
+
       padding: 16px 35px;
+
       border: none;
       border-radius: 50px;
+
       background: #25D366;
+
       color: white;
-      text-decoration: none;
+
       font-size: 21px;
       font-weight: bold;
+
       cursor: pointer;
-      box-shadow: 0 0 25px #25D366;
-      transition: 0.3s;
+
+      box-shadow:
+        0 0 25px #25D366;
+
+      transition:
+        transform 0.2s,
+        box-shadow 0.2s;
     }
 
     .boton:hover {
       transform: scale(1.05);
-      box-shadow: 0 0 35px #25D366;
+
+      box-shadow:
+        0 0 35px #25D366;
     }
 
     .nota {
       margin-top: 20px;
+
       font-size: 14px;
+
       opacity: 0.75;
     }
 
-    /* =========================
-       MODAL DEL FORMULARIO
-       ========================= */
+    /* FORMULARIO */
 
     .formulario {
       display: none;
 
-      position: fixed;
-      z-index: 1000;
+      margin-top: 25px;
 
-      top: 50%;
-      left: 50%;
+      padding: 25px 20px;
 
-      transform: translate(-50%, -50%);
+      border-radius: 20px;
 
-      width: calc(100% - 35px);
-      max-width: 430px;
+      background: rgba(0, 0, 0, 0.88);
 
-      padding: 30px 25px;
-
-      background:
-        linear-gradient(
-          145deg,
-          #1c0b27,
-          #090609
-        );
-
-      border: 2px solid #ff6a00;
-      border-radius: 25px;
+      border: 2px solid #7a00ff;
 
       box-shadow:
-        0 0 20px #ff6a00,
-        0 0 60px rgba(122, 0, 255, 0.6);
-
-      text-align: center;
+        0 0 25px rgba(122, 0, 255, 0.5);
 
       animation: aparecer 0.3s ease;
     }
@@ -178,191 +204,60 @@
     @keyframes aparecer {
       from {
         opacity: 0;
-        transform: translate(-50%, -45%) scale(0.9);
+        transform: translateY(15px);
       }
 
       to {
         opacity: 1;
-        transform: translate(-50%, -50%) scale(1);
+        transform: translateY(0);
       }
     }
 
     .formulario h2 {
-      margin-top: 0;
       color: #ff6a00;
+
+      margin-top: 0;
+
       font-size: 25px;
-      text-shadow: 0 0 10px #ff4500;
     }
 
     .formulario p {
+      line-height: 1.5;
+
       color: #ddd;
-      font-size: 15px;
-      margin-bottom: 20px;
     }
 
-    /* INPUT */
-
-    #nombre {
+    .formulario input {
       width: 100%;
 
       padding: 15px;
 
+      margin: 15px 0;
+
+      border: 2px solid #ff6a00;
+
       border-radius: 12px;
 
-      border: 2px solid #7a00ff;
-
-      background: #050505;
+      background: #17121c;
 
       color: white;
 
       font-size: 17px;
 
       outline: none;
-
-      text-align: center;
-
-      transition: 0.3s;
     }
 
-    #nombre:focus {
-      border-color: #ff6a00;
+    .formulario input:focus {
+      border-color: #7a00ff;
 
       box-shadow:
-        0 0 10px #ff6a00;
+        0 0 15px rgba(122, 0, 255, 0.5);
     }
-
-    #nombre::placeholder {
-      color: #888;
-    }
-
-    /* BOTÓN CONFIRMAR */
 
     .confirmar {
       width: 100%;
 
-      margin-top: 18px;
-
-      padding: 14px;
-
-      border: none;
-
-      border-radius: 12px;
-
-      background: #ff6a00;
-
-      color: #111;
-
-      font-size: 18px;
-
-      font-weight: bold;
-
-      cursor: pointer;
-
-      transition: 0.3s;
-    }
-
-    .confirmar:hover {
-      transform: scale(1.03);
-
-      box-shadow:
-        0 0 20px #ff6a00;
-    }
-
-    /* BOTÓN CANCELAR */
-
-    .cerrar {
-      width: 100%;
-
-      margin-top: 10px;
-
-      padding: 12px;
-
-      border: 1px solid #555;
-
-      border-radius: 12px;
-
-      background: transparent;
-
-      color: #aaa;
-
-      font-size: 15px;
-
-      cursor: pointer;
-    }
-
-    .cerrar:hover {
-      color: white;
-
-      border-color: #ff6a00;
-    }
-
-    /* FONDO OSCURO */
-
-    .overlay {
-      display: none;
-
-      position: fixed;
-
-      z-index: 999;
-
-      inset: 0;
-
-      background: rgba(0, 0, 0, 0.75);
-
-      backdrop-filter: blur(5px);
-    }
-
-    /* MENSAJE DE ÉXITO */
-
-    .exito {
-      display: none;
-
-      position: fixed;
-
-      z-index: 1100;
-
-      top: 50%;
-      left: 50%;
-
-      transform: translate(-50%, -50%);
-
-      width: calc(100% - 35px);
-      max-width: 400px;
-
-      padding: 35px 25px;
-
-      background: #100914;
-
-      border: 2px solid #25D366;
-
-      border-radius: 25px;
-
-      box-shadow:
-        0 0 30px #25D366;
-
-      text-align: center;
-
-      animation: aparecer 0.3s ease;
-    }
-
-    .exito .emoji {
-      font-size: 60px;
-    }
-
-    .exito h2 {
-      color: #25D366;
-      margin: 15px 0 10px;
-    }
-
-    .exito p {
-      color: #ddd;
-      line-height: 1.5;
-    }
-
-    .cerrar-exito {
-      margin-top: 15px;
-
-      padding: 12px 30px;
+      padding: 15px;
 
       border: none;
 
@@ -372,11 +267,73 @@
 
       color: white;
 
-      font-size: 16px;
+      font-size: 18px;
 
       font-weight: bold;
 
       cursor: pointer;
+
+      margin-top: 5px;
+
+      box-shadow:
+        0 0 15px rgba(37, 211, 102, 0.4);
+    }
+
+    .confirmar:hover {
+      transform: scale(1.02);
+    }
+
+    .cerrar {
+      width: 100%;
+
+      padding: 12px;
+
+      border: none;
+
+      background: transparent;
+
+      color: #aaa;
+
+      font-size: 15px;
+
+      margin-top: 10px;
+
+      cursor: pointer;
+    }
+
+    .cerrar:hover {
+      color: white;
+    }
+
+    /* MENSAJE DE ÉXITO */
+
+    .exito {
+      display: none;
+
+      margin-top: 25px;
+
+      padding: 25px;
+
+      border-radius: 20px;
+
+      background: rgba(20, 50, 25, 0.9);
+
+      border: 2px solid #25D366;
+
+      box-shadow:
+        0 0 25px rgba(37, 211, 102, 0.35);
+
+      animation: aparecer 0.3s ease;
+    }
+
+    .exito h2 {
+      color: #25D366;
+
+      margin-top: 0;
+    }
+
+    .exito p {
+      line-height: 1.5;
     }
 
   </style>
@@ -385,6 +342,8 @@
 <body>
 
   <main class="invitacion">
+
+    <!-- ENCABEZADO -->
 
     <div class="luna">
       🎃👻🦇
@@ -399,6 +358,8 @@
       HALLOWEEN
     </h1>
 
+    <!-- FECHA Y HORA -->
+
     <section class="datos">
 
       <div class="dato">
@@ -411,15 +372,27 @@
 
     </section>
 
+    <!-- DISFRAZ -->
+
     <div class="disfraz">
       🎭 DISFRAZ OBLIGATORIO 🎭
     </div>
 
+    <!-- ES DE TRAJE -->
+
     <div class="traje">
-      🍻 <strong>ES DE TRAJE</strong> 🍕<br>
-      Trae cerveza, botana, comida<br>
+
+      🍻 <strong>ES DE TRAJE</strong> 🍕
+
+      <br>
+
+      Trae cerveza, botana, comida
+      <br>
       o algo para compartir.
+
     </div>
+
+    <!-- UBICACIÓN -->
 
     <section class="ubicacion">
 
@@ -428,4 +401,171 @@
       </h2>
 
       <p>
+
         Cerca de Av. Vía Gustavo Baz
+        <br>
+
+        y C. José María Morelos
+        <br>
+
+        Habitacional, 54020
+        <br>
+
+        Tlalnepantla, Méx.
+
+      </p>
+
+    </section>
+
+    <!-- BOTÓN -->
+
+    <button
+      class="boton"
+      onclick="mostrarFormulario()"
+    >
+      🎃 ASISTIRÉ
+    </button>
+
+    <div class="nota">
+
+      ¡Prepárate para una noche
+      de terror y diversión! 👻
+
+    </div>
+
+    <!-- FORMULARIO -->
+
+    <div
+      id="formulario"
+      class="formulario"
+    >
+
+      <h2>
+        🎃 CONFIRMA TU ASISTENCIA
+      </h2>
+
+      <p>
+        Queremos saber quién viene
+        a la fiesta.
+      </p>
+
+      <input
+        type="text"
+        id="nombre"
+        placeholder="Escribe tu nombre"
+        maxlength="50"
+        autocomplete="name"
+      >
+
+      <button
+        class="confirmar"
+        onclick="confirmarAsistencia()"
+      >
+        👻 CONFIRMAR
+      </button>
+
+      <button
+        class="cerrar"
+        onclick="cerrarFormulario()"
+      >
+        Cancelar
+      </button>
+
+    </div>
+
+    <!-- MENSAJE DE ÉXITO -->
+
+    <div
+      id="exito"
+      class="exito"
+    >
+
+      <h2>
+        🎃 ¡ASISTENCIA CONFIRMADA!
+      </h2>
+
+      <p id="mensajeExito">
+        ¡Nos vemos en la fiesta!
+      </p>
+
+    </div>
+
+  </main>
+
+  <script>
+
+    function mostrarFormulario() {
+
+      const formulario =
+        document.getElementById("formulario");
+
+      formulario.style.display = "block";
+
+      formulario.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+      });
+
+    }
+
+
+    function cerrarFormulario() {
+
+      document.getElementById("formulario")
+        .style.display = "none";
+
+    }
+
+
+    function confirmarAsistencia() {
+
+      const campo =
+        document.getElementById("nombre");
+
+      const nombre =
+        campo.value.trim();
+
+
+      if (nombre === "") {
+
+        alert(
+          "Por favor escribe tu nombre 🎃"
+        );
+
+        campo.focus();
+
+        return;
+
+      }
+
+
+      const mensaje =
+        document.getElementById("mensajeExito");
+
+      mensaje.innerHTML =
+        "¡Gracias, <strong>" +
+        nombre +
+        "</strong>! 👻<br><br>" +
+        "Tu asistencia quedó confirmada.";
+
+
+      document.getElementById("formulario")
+        .style.display = "none";
+
+
+      document.getElementById("exito")
+        .style.display = "block";
+
+
+      document.getElementById("exito")
+        .scrollIntoView({
+          behavior: "smooth",
+          block: "center"
+        });
+
+    }
+
+  </script>
+
+</body>
+</html>
