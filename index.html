@@ -1,1454 +1,1967 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Halloween 2026 🎃</title>
-
-  <style>
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      min-height: 100vh;
-      font-family: Arial, Helvetica, sans-serif;
-      color: white;
-      background:
-        radial-gradient(circle at 50% 0%, #35104f 0%, #120719 35%, #050308 80%);
-      overflow-x: hidden;
-    }
-
-
-    /* =========================================
-       FONDO
-    ========================================= */
-
-    .niebla {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 1;
-      opacity: .22;
-      background:
-        radial-gradient(
-          ellipse at 20% 60%,
-          rgba(180,180,180,.25),
-          transparent 35%
-        ),
-        radial-gradient(
-          ellipse at 80% 40%,
-          rgba(180,180,180,.18),
-          transparent 35%
-        );
-      animation: nieblaMover 12s ease-in-out infinite alternate;
-    }
-
-    @keyframes nieblaMover {
-
-      from {
-        transform: translateX(-30px) scale(1);
-      }
-
-      to {
-        transform: translateX(30px) scale(1.08);
-      }
-
-    }
-
-
-    /* =========================================
-       PARTÍCULAS
-    ========================================= */
-
-    .particula {
-      position: fixed;
-      width: 4px;
-      height: 4px;
-      background: #ff7b00;
-      border-radius: 50%;
-      pointer-events: none;
-      z-index: 2;
-      opacity: .7;
-      animation: caer linear infinite;
-    }
-
-    @keyframes caer {
-
-      0% {
-        transform: translateY(-20px);
-        opacity: 0;
-      }
-
-      20% {
-        opacity: .8;
-      }
-
-      100% {
-        transform: translateY(110vh);
-        opacity: 0;
-      }
-
-    }
-
-
-    /* =========================================
-       PANTALLA DE ENTRADA
-    ========================================= */
-
-    #entrada {
-      position: fixed;
-      inset: 0;
-      z-index: 100;
-      background:
-        radial-gradient(
-          circle at center,
-          #32104f 0%,
-          #100617 45%,
-          #030205 100%
-        );
-
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      text-align: center;
-
-      padding: 25px;
-
-      transition:
-        opacity .8s ease,
-        visibility .8s ease;
-    }
-
-    #entrada.oculta {
-      opacity: 0;
-      visibility: hidden;
-    }
-
-    .entrada-contenido {
-      max-width: 600px;
-      animation: aparecer 1.5s ease;
-    }
-
-    @keyframes aparecer {
-
-      from {
-        opacity: 0;
-        transform: scale(.8);
-      }
-
-      to {
-        opacity: 1;
-        transform: scale(1);
-      }
-
-    }
-
-    .entrada-calabaza {
-      font-size: 90px;
-      animation:
-        flotar 3s ease-in-out infinite,
-        brillo 2s ease-in-out infinite alternate;
-    }
-
-    @keyframes flotar {
-
-      0%, 100% {
-        transform: translateY(0);
-      }
-
-      50% {
-        transform: translateY(-12px);
-      }
-
-    }
-
-    @keyframes brillo {
-
-      from {
-        filter: drop-shadow(0 0 5px #ff6500);
-      }
-
-      to {
-        filter: drop-shadow(0 0 30px #ff6500);
-      }
-
-    }
-
-    .entrada-contenido h1 {
-      font-size: clamp(42px, 10vw, 75px);
-      margin: 10px 0;
-      color: #ff7b00;
-      text-shadow:
-        0 0 10px #ff5500,
-        0 0 30px rgba(255,80,0,.5);
-    }
-
-    .entrada-subtitulo {
-      font-size: 20px;
-      color: #ddd;
-      margin-bottom: 10px;
-    }
-
-    .entrada-peligro {
-      color: #ff9999;
-      font-weight: bold;
-      font-size: 18px;
-      margin-bottom: 30px;
-    }
-
-    #btnEntrar {
-      border: none;
-      border-radius: 15px;
-      padding: 18px 35px;
-      font-size: 20px;
-      font-weight: bold;
-      color: white;
-      cursor: pointer;
-
-      background:
-        linear-gradient(
-          135deg,
-          #ff7b00,
-          #ff2d00
-        );
-
-      box-shadow:
-        0 0 20px rgba(255,80,0,.5);
-
-      transition: .25s;
-    }
-
-    #btnEntrar:hover {
-      transform: scale(1.05);
-      box-shadow:
-        0 0 35px rgba(255,80,0,.8);
-    }
-
-
-    /* =========================================
-       BOTÓN MÚSICA
-    ========================================= */
-
-    #btnMusica {
-      position: fixed;
-      top: 18px;
-      right: 18px;
-      z-index: 50;
-
-      border: 1px solid #8b2be2;
-      background: rgba(10,5,15,.85);
-      color: white;
-
-      border-radius: 50px;
-      padding: 12px 18px;
-
-      cursor: pointer;
-      font-weight: bold;
-
-      box-shadow:
-        0 0 15px rgba(139,43,226,.4);
-
-      backdrop-filter: blur(8px);
-    }
-
-
-    /* =========================================
-       MONSTRUOS
-    ========================================= */
-
-    .monstruo {
-      position: fixed;
-      z-index: 3;
-      pointer-events: none;
-      font-size: 55px;
-      opacity: .5;
-      filter:
-        drop-shadow(0 0 10px rgba(255,80,0,.5));
-
-      animation:
-        monstruoMover 8s ease-in-out infinite;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    .monstruo.uno {
-      top: 18%;
-      left: 3%;
-    }
-
-    .monstruo.dos {
-      top: 50%;
-      right: 3%;
-      animation-delay: 2s;
-    }
+<title>Halloween 2026 ☠️</title>
 
-    .monstruo.tres {
-      bottom: 10%;
-      left: 5%;
-      animation-delay: 4s;
-    }
-
-    @keyframes monstruoMover {
-
-      0%, 100% {
-        transform:
-          translateY(0)
-          rotate(-5deg);
-      }
-
-      50% {
-        transform:
-          translateY(-25px)
-          rotate(5deg);
-      }
+<style>
 
-    }
+/* =====================================================
+   BASE
+===================================================== */
 
+* {
+  box-sizing: border-box;
+}
 
-    /* =========================================
-       CONTENEDOR PRINCIPAL
-    ========================================= */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
 
-    .contenedor {
-      position: relative;
-      z-index: 10;
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
 
-      width: 100%;
-      max-width: 650px;
+  color: white;
 
-      margin: auto;
+  background:
+    radial-gradient(
+      circle at 50% 0%,
+      #35104f 0%,
+      #160719 35%,
+      #050208 75%,
+      #000000 100%
+    );
 
-      padding:
-        90px 18px
-        30px;
-    }
+  overflow-x: hidden;
+}
 
 
-    /* =========================================
-       TARJETA
-    ========================================= */
+/* =====================================================
+   EFECTO OSCURO
+===================================================== */
 
-    .tarjeta {
-      background:
-        linear-gradient(
-          180deg,
-          rgba(12,8,18,.97),
-          rgba(5,4,8,.97)
-        );
+body::before {
+  content: "";
 
-      border:
-        2px solid #8b2be2;
+  position: fixed;
+  inset: 0;
 
-      border-radius: 28px;
+  pointer-events: none;
 
-      padding: 30px 22px;
+  background:
+    radial-gradient(
+      ellipse at center,
+      transparent 35%,
+      rgba(0,0,0,.75) 100%
+    );
 
-      text-align: center;
+  z-index: 20;
+}
 
-      box-shadow:
-        0 0 25px rgba(139,43,226,.4),
-        0 0 80px rgba(255,80,0,.08);
-    }
 
+/* =====================================================
+   NIEBLA
+===================================================== */
 
-    /* =========================================
-       CABECERA
-    ========================================= */
+.niebla {
+  position: fixed;
+  inset: -20%;
 
-    .emoji-principal {
-      font-size: 75px;
+  z-index: 2;
 
-      animation:
-        flotar 3s ease-in-out infinite;
-    }
+  pointer-events: none;
 
-    h2.titulo {
-      margin: 5px 0;
+  opacity: .35;
 
-      font-size:
-        clamp(35px, 9vw, 55px);
+  background:
+    radial-gradient(
+      ellipse at 20% 60%,
+      rgba(180,180,180,.20),
+      transparent 35%
+    ),
+    radial-gradient(
+      ellipse at 80% 40%,
+      rgba(180,180,180,.16),
+      transparent 35%
+    ),
+    radial-gradient(
+      ellipse at 50% 80%,
+      rgba(120,120,120,.13),
+      transparent 40%
+    );
 
-      color: #ff7b00;
+  filter: blur(25px);
 
-      text-shadow:
-        0 0 12px rgba(255,100,0,.7);
-    }
+  animation:
+    niebla 15s ease-in-out infinite alternate;
+}
 
-    .subtitulo {
-      font-size: 18px;
-      color: #d8b4fe;
-      margin: 10px 0 28px;
-    }
+@keyframes niebla {
 
+  from {
+    transform:
+      translateX(-5%)
+      translateY(2%)
+      scale(1);
+  }
 
-    /* =========================================
-       DATOS
-    ========================================= */
+  to {
+    transform:
+      translateX(5%)
+      translateY(-3%)
+      scale(1.15);
+  }
+}
 
-    .datos {
-      display: grid;
-      gap: 12px;
-      margin: 25px 0;
-    }
 
-    .dato {
-      background:
-        rgba(139,43,226,.10);
+/* =====================================================
+   PARPADEO DE LUZ
+===================================================== */
 
-      border:
-        1px solid rgba(139,43,226,.4);
+.parpadeo {
+  position: fixed;
+  inset: 0;
 
-      border-radius: 15px;
+  pointer-events: none;
 
-      padding: 14px;
+  z-index: 19;
 
-      font-size: 17px;
-    }
+  background: rgba(255,0,0,.06);
 
-    .dato strong {
-      display: block;
+  opacity: 0;
 
-      color: #ff9d3d;
+  animation:
+    parpadear 8s infinite;
+}
 
-      font-size: 20px;
+@keyframes parpadear {
 
-      margin-bottom: 4px;
-    }
+  0%, 90%, 100% {
+    opacity: 0;
+  }
 
+  92% {
+    opacity: .18;
+  }
 
-    /* =========================================
-       NOTA
-    ========================================= */
+  93% {
+    opacity: 0;
+  }
 
-    .nota {
-      background:
-        rgba(255,123,0,.08);
+  95% {
+    opacity: .08;
+  }
 
-      border:
-        1px solid rgba(255,123,0,.5);
+  96% {
+    opacity: 0;
+  }
+}
 
-      border-radius: 18px;
 
-      padding: 18px;
+/* =====================================================
+   SANGRE ARRIBA
+===================================================== */
 
-      margin: 22px 0;
+.sangre {
+  position: fixed;
 
-      color: #ffe4c4;
+  top: 0;
+  left: 0;
 
-      line-height: 1.6;
-    }
+  width: 100%;
+  height: 80px;
 
+  z-index: 25;
 
-    /* =========================================
-       BOTONES
-    ========================================= */
+  pointer-events: none;
 
-    .botones {
-      display: grid;
-      gap: 13px;
-      margin-top: 25px;
-    }
+  background:
+    radial-gradient(
+      ellipse at 10% 0%,
+      #8b0000 0%,
+      transparent 45%
+    ),
+    radial-gradient(
+      ellipse at 45% 0%,
+      #650000 0%,
+      transparent 40%
+    ),
+    radial-gradient(
+      ellipse at 85% 0%,
+      #900000 0%,
+      transparent 45%
+    );
+}
 
-    .boton {
-      border: none;
 
-      border-radius: 15px;
+/* =====================================================
+   OJOS EN LA OSCURIDAD
+===================================================== */
 
-      padding: 17px;
+.ojos {
+  position: fixed;
 
-      font-size: 18px;
+  z-index: 3;
 
-      font-weight: bold;
+  pointer-events: none;
 
-      cursor: pointer;
+  color: #ff1a1a;
 
-      color: white;
+  text-shadow:
+    0 0 8px red,
+    0 0 20px red,
+    0 0 40px red;
 
-      transition: .2s;
-    }
+  animation:
+    ojosParpadeo 4s infinite;
+}
 
-    .boton:hover {
-      transform: translateY(-3px);
-      filter: brightness(1.12);
-    }
+.ojos.uno {
+  top: 25%;
+  left: 7%;
+  font-size: 25px;
+}
 
-    .boton:active {
-      transform: scale(.98);
-    }
+.ojos.dos {
+  top: 43%;
+  right: 6%;
+  font-size: 20px;
+  animation-delay: 1.8s;
+}
 
-    .asistire {
-      background:
-        linear-gradient(
-          135deg,
-          #ff7b00,
-          #ff3d00
-        );
+.ojos.tres {
+  bottom: 20%;
+  left: 12%;
+  font-size: 16px;
+  animation-delay: 3s;
+}
 
-      box-shadow:
-        0 0 20px rgba(255,94,0,.25);
-    }
+@keyframes ojosParpadeo {
 
-    .no-asistire {
-      background:
-        linear-gradient(
-          135deg,
-          #6b21a8,
-          #4c1d95
-        );
-    }
+  0%, 40%, 100% {
+    opacity: .08;
+  }
 
-    .ubicacion {
-      background:
-        linear-gradient(
-          135deg,
-          #15803d,
-          #166534
-        );
-    }
+  45%, 52% {
+    opacity: .85;
+  }
 
+  55% {
+    opacity: .05;
+  }
+}
 
-    /* =========================================
-       FORMULARIO
-    ========================================= */
 
-    .formulario {
-      display: none;
+/* =====================================================
+   MURCIÉLAGOS
+===================================================== */
 
-      margin-top: 20px;
+.murcielago {
+  position: fixed;
 
-      padding: 20px;
+  z-index: 5;
 
-      background:
-        rgba(255,255,255,.04);
+  pointer-events: none;
 
-      border:
-        1px solid rgba(255,255,255,.12);
+  font-size: 35px;
 
-      border-radius: 18px;
-    }
+  opacity: .6;
 
-    .formulario h3 {
-      color: #ff9d3d;
-      margin-top: 0;
-    }
+  animation:
+    volar 12s linear infinite;
+}
 
-    input {
-      width: 100%;
+.murcielago.a {
+  top: 15%;
+  left: -60px;
+}
 
-      padding: 15px;
+.murcielago.b {
+  top: 30%;
+  left: -80px;
 
-      border-radius: 12px;
+  animation-delay: 5s;
+  animation-duration: 15s;
+}
 
-      border:
-        1px solid #6b21a8;
+.murcielago.c {
+  top: 65%;
+  left: -100px;
 
-      background: #130d1b;
+  animation-delay: 8s;
+  animation-duration: 18s;
+}
 
-      color: white;
+@keyframes volar {
 
-      font-size: 16px;
+  from {
+    transform:
+      translateX(-100px)
+      translateY(0)
+      rotate(5deg);
+  }
 
-      outline: none;
+  50% {
+    transform:
+      translateX(50vw)
+      translateY(-50px)
+      rotate(-5deg);
+  }
 
-      margin-bottom: 12px;
-    }
+  to {
+    transform:
+      translateX(110vw)
+      translateY(20px)
+      rotate(5deg);
+  }
+}
 
-    input:focus {
-      border-color: #ff7b00;
 
-      box-shadow:
-        0 0 10px rgba(255,123,0,.3);
-    }
+/* =====================================================
+   PARTÍCULAS
+===================================================== */
 
-    .confirmar {
-      width: 100%;
+.particula {
+  position: fixed;
 
-      background:
-        linear-gradient(
-          135deg,
-          #16a34a,
-          #15803d
-        );
-    }
+  z-index: 4;
 
-    .cancelar {
-      width: 100%;
+  width: 3px;
+  height: 3px;
 
-      background: #33303a;
+  border-radius: 50%;
 
-      margin-top: 10px;
-    }
+  background: #ff6a00;
 
+  box-shadow:
+    0 0 8px #ff4500;
 
-    /* =========================================
-       RESULTADOS
-    ========================================= */
+  pointer-events: none;
 
-    .resultado {
-      display: none;
+  animation:
+    caer linear infinite;
+}
 
-      margin-top: 20px;
+@keyframes caer {
 
-      padding: 22px;
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
 
-      border-radius: 18px;
+  20% {
+    opacity: .8;
+  }
 
-      font-weight: bold;
+  to {
+    transform: translateY(110vh);
+    opacity: 0;
+  }
+}
 
-      font-size: 19px;
 
-      line-height: 1.5;
-    }
+/* =====================================================
+   PANTALLA DE ENTRADA
+===================================================== */
 
-    .resultado.exito {
-      background:
-        rgba(22,163,74,.12);
+#entrada {
+  position: fixed;
 
-      border:
-        1px solid #16a34a;
+  inset: 0;
 
-      color: #86efac;
-    }
+  z-index: 100;
 
-    .resultado.no {
-      background:
-        rgba(127,29,29,.15);
+  display: flex;
 
-      border:
-        1px solid #ef4444;
+  justify-content: center;
+  align-items: center;
 
-      color: #fca5a5;
-    }
+  text-align: center;
 
+  padding: 25px;
 
-    /* =========================================
-       PIE
-    ========================================= */
+  background:
+    radial-gradient(
+      circle at center,
+      #260b35 0%,
+      #09030d 45%,
+      #000 100%
+    );
 
-    .pie {
-      margin-top: 28px;
+  transition:
+    opacity 1s ease,
+    visibility 1s ease;
+}
 
-      color: #9ca3af;
+#entrada.oculta {
+  opacity: 0;
+  visibility: hidden;
+}
 
-      font-size: 13px;
-    }
+.entrada-contenido {
+  max-width: 650px;
 
+  animation:
+    entrada .9s ease;
+}
 
-    /* =========================================
-       CELULAR
-    ========================================= */
+@keyframes entrada {
 
-    @media (max-width: 480px) {
+  from {
+    opacity: 0;
+    transform:
+      scale(.75)
+      translateY(30px);
+  }
 
-      .contenedor {
-        padding-top: 80px;
-      }
+  to {
+    opacity: 1;
+    transform:
+      scale(1)
+      translateY(0);
+  }
+}
 
-      .tarjeta {
-        padding:
-          25px 16px;
-      }
+.entrada-calavera {
+  font-size: 95px;
 
-      .monstruo {
-        font-size: 38px;
-        opacity: .3;
-      }
+  animation:
+    calavera 2.5s ease-in-out infinite;
 
-      #btnMusica {
-        top: 10px;
-        right: 10px;
-        font-size: 12px;
-        padding: 9px 13px;
-      }
+  filter:
+    drop-shadow(0 0 20px red);
+}
 
-    }
+@keyframes calavera {
 
-  </style>
+  0%,100% {
+    transform: rotate(-4deg);
+  }
 
+  50% {
+    transform: rotate(4deg) scale(1.08);
+  }
+}
+
+.entrada-contenido h1 {
+  margin: 5px 0;
+
+  font-size:
+    clamp(42px, 11vw, 80px);
+
+  color: #ff4b00;
+
+  text-shadow:
+    0 0 10px #ff3c00,
+    0 0 25px #ff0000,
+    0 0 50px rgba(255,0,0,.6);
+}
+
+.entrada-subtitulo {
+  color: #ddd;
+
+  font-size: 19px;
+
+  margin-bottom: 10px;
+}
+
+.entrada-peligro {
+  color: #ff7777;
+
+  font-size: 18px;
+
+  font-weight: bold;
+
+  margin-bottom: 30px;
+}
+
+#btnEntrar {
+  border: 2px solid #ff4b00;
+
+  border-radius: 15px;
+
+  padding: 18px 35px;
+
+  font-size: 19px;
+
+  font-weight: bold;
+
+  color: white;
+
+  cursor: pointer;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ff6500,
+      #a40000
+    );
+
+  box-shadow:
+    0 0 20px rgba(255,50,0,.6),
+    inset 0 0 20px rgba(0,0,0,.3);
+
+  animation:
+    botonEntrada 2s infinite;
+}
+
+@keyframes botonEntrada {
+
+  0%,100% {
+    box-shadow:
+      0 0 20px rgba(255,50,0,.5);
+  }
+
+  50% {
+    box-shadow:
+      0 0 40px rgba(255,0,0,.9);
+  }
+}
+
+
+/* =====================================================
+   BOTÓN MÚSICA
+===================================================== */
+
+#btnMusica {
+  position: fixed;
+
+  top: 18px;
+  right: 18px;
+
+  z-index: 60;
+
+  border:
+    1px solid #ff4b00;
+
+  background:
+    rgba(10,0,5,.9);
+
+  color: white;
+
+  border-radius: 50px;
+
+  padding: 12px 18px;
+
+  cursor: pointer;
+
+  font-weight: bold;
+
+  box-shadow:
+    0 0 15px rgba(255,50,0,.5);
+
+  backdrop-filter: blur(10px);
+}
+
+
+/* =====================================================
+   CONTENEDOR
+===================================================== */
+
+.contenedor {
+  position: relative;
+
+  z-index: 10;
+
+  width: 100%;
+
+  max-width: 680px;
+
+  margin: auto;
+
+  padding:
+    100px 18px
+    35px;
+}
+
+
+/* =====================================================
+   TARJETA
+===================================================== */
+
+.tarjeta {
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(14,7,18,.97),
+      rgba(3,2,5,.98)
+    );
+
+  border:
+    2px solid #8b2be2;
+
+  border-radius: 28px;
+
+  padding:
+    32px 22px;
+
+  text-align: center;
+
+  box-shadow:
+    0 0 25px rgba(139,43,226,.5),
+    0 0 80px rgba(255,0,0,.08);
+}
+
+
+/* =====================================================
+   CABECERA
+===================================================== */
+
+.emoji-principal {
+  font-size: 75px;
+
+  animation:
+    flotar 3s ease-in-out infinite;
+
+  filter:
+    drop-shadow(0 0 15px #ff6500);
+}
+
+@keyframes flotar {
+
+  0%,100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+.titulo {
+  margin: 5px 0;
+
+  font-size:
+    clamp(35px, 9vw, 55px);
+
+  color: #ff6500;
+
+  text-shadow:
+    0 0 12px #ff4500,
+    0 0 25px rgba(255,0,0,.5);
+}
+
+.subtitulo {
+  font-size: 18px;
+
+  color: #d8b4fe;
+
+  margin:
+    10px 0 28px;
+}
+
+
+/* =====================================================
+   DATOS
+===================================================== */
+
+.datos {
+  display: grid;
+
+  gap: 12px;
+
+  margin: 25px 0;
+}
+
+.dato {
+  background:
+    rgba(139,43,226,.10);
+
+  border:
+    1px solid rgba(139,43,226,.45);
+
+  border-radius: 15px;
+
+  padding: 15px;
+
+  font-size: 17px;
+}
+
+.dato strong {
+  display: block;
+
+  color: #ff9d3d;
+
+  font-size: 20px;
+
+  margin-bottom: 4px;
+}
+
+
+/* =====================================================
+   NOTA
+===================================================== */
+
+.nota {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(90,20,0,.3),
+      rgba(30,0,20,.3)
+    );
+
+  border:
+    1px solid #a94a00;
+
+  border-radius: 18px;
+
+  padding: 18px;
+
+  margin: 22px 0;
+
+  color: #ffe4c4;
+
+  line-height: 1.6;
+
+  box-shadow:
+    inset 0 0 20px rgba(255,50,0,.05);
+}
+
+
+/* =====================================================
+   BOTONES
+===================================================== */
+
+.botones {
+  display: grid;
+
+  gap: 13px;
+
+  margin-top: 25px;
+}
+
+.boton {
+  border: none;
+
+  border-radius: 15px;
+
+  padding: 17px;
+
+  font-size: 18px;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  color: white;
+
+  transition: .2s;
+}
+
+.boton:hover {
+  transform: translateY(-3px);
+
+  filter: brightness(1.15);
+}
+
+.boton:active {
+  transform: scale(.98);
+}
+
+.asistire {
+  background:
+    linear-gradient(
+      135deg,
+      #ff7600,
+      #e52d00
+    );
+
+  box-shadow:
+    0 0 20px rgba(255,80,0,.3);
+}
+
+.no-asistire {
+  background:
+    linear-gradient(
+      135deg,
+      #6b21a8,
+      #351064
+    );
+}
+
+.ubicacion {
+  background:
+    linear-gradient(
+      135deg,
+      #15803d,
+      #064e22
+    );
+}
+
+
+/* =====================================================
+   FORMULARIO
+===================================================== */
+
+.formulario {
+  display: none;
+
+  margin-top: 20px;
+
+  padding: 20px;
+
+  background:
+    rgba(255,255,255,.04);
+
+  border:
+    1px solid rgba(255,255,255,.12);
+
+  border-radius: 18px;
+}
+
+.formulario h3 {
+  color: #ff9d3d;
+
+  margin-top: 0;
+}
+
+input {
+  width: 100%;
+
+  padding: 15px;
+
+  border-radius: 12px;
+
+  border:
+    1px solid #6b21a8;
+
+  background: #130d1b;
+
+  color: white;
+
+  font-size: 16px;
+
+  outline: none;
+
+  margin-bottom: 12px;
+}
+
+input:focus {
+  border-color: #ff7b00;
+
+  box-shadow:
+    0 0 10px rgba(255,123,0,.3);
+}
+
+.confirmar {
+  width: 100%;
+
+  background:
+    linear-gradient(
+      135deg,
+      #16a34a,
+      #15803d
+    );
+}
+
+.cancelar {
+  width: 100%;
+
+  background: #33303a;
+
+  margin-top: 10px;
+}
+
+
+/* =====================================================
+   RESULTADOS
+===================================================== */
+
+.resultado {
+  display: none;
+
+  margin-top: 20px;
+
+  padding: 22px;
+
+  border-radius: 18px;
+
+  font-weight: bold;
+
+  font-size: 19px;
+
+  line-height: 1.5;
+}
+
+.resultado.exito {
+  background:
+    rgba(22,163,74,.12);
+
+  border:
+    1px solid #16a34a;
+
+  color: #86efac;
+}
+
+.resultado.no {
+  background:
+    rgba(127,29,29,.15);
+
+  border:
+    1px solid #ef4444;
+
+  color: #fca5a5;
+}
+
+
+/* =====================================================
+   PIE
+===================================================== */
+
+.pie {
+  margin-top: 28px;
+
+  color: #9ca3af;
+
+  font-size: 13px;
+}
+
+
+/* =====================================================
+   CELULAR
+===================================================== */
+
+@media (max-width: 480px) {
+
+  .contenedor {
+    padding-top: 85px;
+  }
+
+  .tarjeta {
+    padding:
+      25px 16px;
+  }
+
+  .ojos {
+    opacity: .5;
+  }
+
+  .murcielago {
+    font-size: 28px;
+  }
+
+  #btnMusica {
+    top: 10px;
+    right: 10px;
+
+    font-size: 12px;
+
+    padding:
+      9px 13px;
+  }
+
+}
+
+</style>
 </head>
 
 
 <body>
 
 
-  <!-- ======================================
-       NIEBLA
-  ======================================= -->
+<!-- =================================================
+     EFECTOS
+================================================= -->
 
-  <div class="niebla"></div>
+<div class="niebla"></div>
 
+<div class="parpadeo"></div>
 
-  <!-- ======================================
-       PARTÍCULAS
-  ======================================= -->
-
-  <div class="particula" style="left:10%;animation-duration:8s;"></div>
-  <div class="particula" style="left:25%;animation-duration:11s;"></div>
-  <div class="particula" style="left:40%;animation-duration:9s;"></div>
-  <div class="particula" style="left:60%;animation-duration:12s;"></div>
-  <div class="particula" style="left:75%;animation-duration:10s;"></div>
-  <div class="particula" style="left:90%;animation-duration:7s;"></div>
+<div class="sangre"></div>
 
 
-  <!-- ======================================
-       MONSTRUOS
-  ======================================= -->
+<!-- OJOS -->
 
-  <div class="monstruo uno">👹</div>
-
-  <div class="monstruo dos">👻</div>
-
-  <div class="monstruo tres">💀</div>
+<div class="ojos uno">● ●</div>
+<div class="ojos dos">● ●</div>
+<div class="ojos tres">● ●</div>
 
 
-  <!-- ======================================
-       PANTALLA DE ENTRADA
-  ======================================= -->
+<!-- MURCIÉLAGOS -->
 
-  <section id="entrada">
+<div class="murcielago a">🦇</div>
+<div class="murcielago b">🦇</div>
+<div class="murcielago c">🦇</div>
 
-    <div class="entrada-contenido">
 
-      <div class="entrada-calabaza">
-        🎃
-      </div>
+<!-- PARTÍCULAS -->
 
-      <h1>
-        HALLOWEEN
-      </h1>
+<div class="particula" style="left:5%;animation-duration:8s"></div>
+<div class="particula" style="left:15%;animation-duration:11s"></div>
+<div class="particula" style="left:25%;animation-duration:9s"></div>
+<div class="particula" style="left:35%;animation-duration:13s"></div>
+<div class="particula" style="left:48%;animation-duration:10s"></div>
+<div class="particula" style="left:60%;animation-duration:12s"></div>
+<div class="particula" style="left:72%;animation-duration:8s"></div>
+<div class="particula" style="left:85%;animation-duration:11s"></div>
+<div class="particula" style="left:95%;animation-duration:9s"></div>
 
-      <div class="entrada-subtitulo">
-        6 DE NOVIEMBRE · 2026
-      </div>
 
-      <div class="entrada-peligro">
-        ⚠️ ENTRA BAJO TU PROPIO RIESGO ⚠️
-      </div>
+<!-- =================================================
+     PANTALLA DE ENTRADA
+================================================= -->
 
-      <button id="btnEntrar">
-        👻 ENTRAR A LA FIESTA
-      </button>
+<section id="entrada">
+
+  <div class="entrada-contenido">
+
+    <div class="entrada-calavera">
+      ☠️
+    </div>
+
+    <h1>
+      HALLOWEEN
+    </h1>
+
+    <div class="entrada-subtitulo">
+      6 DE NOVIEMBRE · 2026
+    </div>
+
+    <div class="entrada-peligro">
+      ⚠️ ENTRA BAJO TU PROPIO RIESGO ⚠️
+    </div>
+
+    <button id="btnEntrar">
+      ☠️ ENTRAR A LA FIESTA
+    </button>
+
+  </div>
+
+</section>
+
+
+<!-- =================================================
+     MÚSICA
+================================================= -->
+
+<button id="btnMusica">
+  🔊 AMBIENTE DE TERROR
+</button>
+
+
+<!-- =================================================
+     CONTENIDO
+================================================= -->
+
+<main class="contenedor">
+
+<div class="tarjeta">
+
+
+  <div class="emoji-principal">
+    🎃
+  </div>
+
+
+  <h2 class="titulo">
+    HALLOWEEN 2026
+  </h2>
+
+
+  <div class="subtitulo">
+    Una noche que probablemente deberíamos olvidar... 👻
+  </div>
+
+
+  <div class="datos">
+
+
+    <div class="dato">
+
+      <strong>
+        📅 FECHA
+      </strong>
+
+      6 de noviembre de 2026
 
     </div>
 
-  </section>
 
+    <div class="dato">
 
-  <!-- ======================================
-       BOTÓN MÚSICA
-  ======================================= -->
+      <strong>
+        🕖 HORA
+      </strong>
 
-  <button id="btnMusica">
-    🔇 ACTIVAR AMBIENTE
-  </button>
-
-
-  <!-- ======================================
-       CONTENIDO
-  ======================================= -->
-
-  <main class="contenedor">
-
-    <div class="tarjeta">
-
-
-      <div class="emoji-principal">
-        🎃
-      </div>
-
-
-      <h2 class="titulo">
-        HALLOWEEN 2026
-      </h2>
-
-
-      <div class="subtitulo">
-        Una noche que probablemente deberíamos olvidar... 👻
-      </div>
-
-
-      <!-- DATOS -->
-
-      <div class="datos">
-
-
-        <div class="dato">
-
-          <strong>
-            📅 FECHA
-          </strong>
-
-          6 de noviembre de 2026
-
-        </div>
-
-
-        <div class="dato">
-
-          <strong>
-            🕖 HORA
-          </strong>
-
-          7:00 PM
-
-        </div>
-
-
-        <div class="dato">
-
-          <strong>
-            📍 LUGAR
-          </strong>
-
-          Tlalnepantla, Estado de México
-
-        </div>
-
-
-        <div class="dato">
-
-          <strong>
-            👹 DISFRAZ
-          </strong>
-
-          Obligatorio
-
-        </div>
-
-
-      </div>
-
-
-      <!-- NOTA -->
-
-      <div class="nota">
-
-        🍺 <strong>ES DE TRAJE</strong> 🍿
-
-        <br>
-
-        Trae cerveza, botana, comida
-        o algo para compartir.
-
-        <br><br>
-
-        <strong>
-          ¡Y NO OLVIDES TU DISFRAZ! 🎭
-        </strong>
-
-      </div>
-
-
-      <!-- BOTONES -->
-
-      <div class="botones">
-
-
-        <button
-          id="btnAsistire"
-          class="boton asistire"
-        >
-          🎃 ASISTIRÉ
-        </button>
-
-
-        <button
-          id="btnNoAsistire"
-          class="boton no-asistire"
-        >
-          👻 NO PODRÉ ASISTIR
-        </button>
-
-
-        <button
-          id="btnUbicacion"
-          class="boton ubicacion"
-        >
-          📍 VER UBICACIÓN
-        </button>
-
-
-      </div>
-
-
-      <!-- FORMULARIO -->
-
-      <div
-        id="formulario"
-        class="formulario"
-      >
-
-        <h3 id="tituloFormulario">
-          🎃 Confirmar asistencia
-        </h3>
-
-        <p>
-          Escribe tu nombre para registrar tu respuesta.
-        </p>
-
-        <input
-          type="text"
-          id="nombre"
-          placeholder="Tu nombre"
-          autocomplete="name"
-        >
-
-
-        <button
-          id="btnConfirmar"
-          class="boton confirmar"
-        >
-          ✅ CONFIRMAR
-        </button>
-
-
-        <button
-          id="btnCerrar"
-          class="boton cancelar"
-        >
-          ✖ CANCELAR
-        </button>
-
-      </div>
-
-
-      <!-- RESULTADO SÍ -->
-
-      <div
-        id="resultadoExito"
-        class="resultado exito"
-      >
-
-        🎃 ¡ASISTENCIA CONFIRMADA!
-
-        <br><br>
-
-        ¡Nos vemos en Halloween!
-
-      </div>
-
-
-      <!-- RESULTADO NO -->
-
-      <div
-        id="resultadoNo"
-        class="resultado no"
-      >
-
-        👻 ¡QUÉ LÁSTIMA!
-
-        <br><br>
-
-        Gracias por avisarnos.
-
-      </div>
-
-
-      <!-- PIE -->
-
-      <div class="pie">
-
-        🕷️ Halloween 2026
-        · Prepárate para una noche aterradora 🕷️
-
-      </div>
-
+      7:00 PM
 
     </div>
 
-  </main>
+
+    <div class="dato">
+
+      <strong>
+        📍 LUGAR
+      </strong>
+
+      Tlalnepantla, Estado de México
+
+    </div>
 
 
-  <!-- ======================================
-       JAVASCRIPT
-  ======================================= -->
+    <div class="dato">
 
-  <script>
+      <strong>
+        ☠️ DISFRAZ
+      </strong>
 
+      Obligatorio
 
-    /* ======================================
-       CONFIGURACIÓN
-    ======================================= */
-
-    const URL_REGISTRO =
-      "https://script.google.com/macros/s/AKfycbzF0Q-7I_Wu6oDmbNBnzwtfRnDcJ7_g1ZDEGfbMynK8mVz9bY3vOV-G9WmlluiboKrjLg/exec";
+    </div>
 
 
-    const URL_MAPS =
-      "https://www.google.com/maps/search/?api=1&query=José+Ma.+Morelos+2%2C+Habitacional%2C+54020+Tlalnepantla%2C+México";
+  </div>
 
 
-    let tipoConfirmacion = "Sí";
+  <div class="nota">
+
+    🍺 <strong>ES DE TRAJE</strong> 🍿
+
+    <br>
+
+    Trae cerveza, botana, comida
+    o algo para compartir.
+
+    <br><br>
+
+    <strong>
+      ¡Y NO OLVIDES TU DISFRAZ! 🎭
+    </strong>
+
+  </div>
 
 
-    /* ======================================
-       ELEMENTOS
-    ======================================= */
-
-    const entrada =
-      document.getElementById("entrada");
-
-    const btnEntrar =
-      document.getElementById("btnEntrar");
-
-    const btnMusica =
-      document.getElementById("btnMusica");
-
-    const btnAsistire =
-      document.getElementById("btnAsistire");
-
-    const btnNoAsistire =
-      document.getElementById("btnNoAsistire");
-
-    const btnUbicacion =
-      document.getElementById("btnUbicacion");
-
-    const formulario =
-      document.getElementById("formulario");
-
-    const tituloFormulario =
-      document.getElementById("tituloFormulario");
-
-    const nombreInput =
-      document.getElementById("nombre");
-
-    const btnConfirmar =
-      document.getElementById("btnConfirmar");
-
-    const btnCerrar =
-      document.getElementById("btnCerrar");
-
-    const resultadoExito =
-      document.getElementById("resultadoExito");
-
-    const resultadoNo =
-      document.getElementById("resultadoNo");
+  <div class="botones">
 
 
-    /* ======================================
-       ENTRAR
-    ======================================= */
+    <button
+      id="btnAsistire"
+      class="boton asistire"
+    >
+      🎃 ASISTIRÉ
+    </button>
 
-    btnEntrar.addEventListener(
-      "click",
-      function () {
 
-        entrada.classList.add("oculta");
+    <button
+      id="btnNoAsistire"
+      class="boton no-asistire"
+    >
+      👻 NO PODRÉ ASISTIR
+    </button>
 
-        iniciarAmbiente();
 
-      }
+    <button
+      id="btnUbicacion"
+      class="boton ubicacion"
+    >
+      📍 VER UBICACIÓN
+    </button>
+
+
+  </div>
+
+
+  <!-- FORMULARIO -->
+
+  <div
+    id="formulario"
+    class="formulario"
+  >
+
+    <h3 id="tituloFormulario">
+      🎃 Confirmar asistencia
+    </h3>
+
+    <p>
+      Escribe tu nombre para registrar tu respuesta.
+    </p>
+
+    <input
+      type="text"
+      id="nombre"
+      placeholder="Tu nombre"
+      autocomplete="name"
+    >
+
+    <button
+      id="btnConfirmar"
+      class="boton confirmar"
+    >
+      ✅ CONFIRMAR
+    </button>
+
+    <button
+      id="btnCerrar"
+      class="boton cancelar"
+    >
+      ✖ CANCELAR
+    </button>
+
+  </div>
+
+
+  <!-- RESULTADO SÍ -->
+
+  <div
+    id="resultadoExito"
+    class="resultado exito"
+  >
+
+    🎃 ¡ASISTENCIA CONFIRMADA!
+
+    <br><br>
+
+    ¡Nos vemos en Halloween!
+
+  </div>
+
+
+  <!-- RESULTADO NO -->
+
+  <div
+    id="resultadoNo"
+    class="resultado no"
+  >
+
+    👻 ¡QUÉ LÁSTIMA!
+
+    <br><br>
+
+    Gracias por avisarnos.
+
+  </div>
+
+
+  <div class="pie">
+
+    🕷️ Halloween 2026
+    · Prepárate para una noche aterradora 🕷️
+
+  </div>
+
+
+</div>
+
+</main>
+
+
+<script>
+
+/* =====================================================
+   CONFIGURACIÓN
+===================================================== */
+
+const URL_REGISTRO =
+"https://script.google.com/macros/s/AKfycbzF0Q-7I_Wu6oDmbNBnzwtfRnDcJ7_g1ZDEGfbMynK8mVz9bY3vOV-G9WmlluiboKrjLg/exec";
+
+
+const URL_MAPS =
+"https://www.google.com/maps/search/?api=1&query=José+Ma.+Morelos+2%2C+Habitacional%2C+54020+Tlalnepantla%2C+México";
+
+
+let tipoConfirmacion = "Sí";
+
+
+/* =====================================================
+   ELEMENTOS
+===================================================== */
+
+const entrada =
+document.getElementById("entrada");
+
+const btnEntrar =
+document.getElementById("btnEntrar");
+
+const btnMusica =
+document.getElementById("btnMusica");
+
+const btnAsistire =
+document.getElementById("btnAsistire");
+
+const btnNoAsistire =
+document.getElementById("btnNoAsistire");
+
+const btnUbicacion =
+document.getElementById("btnUbicacion");
+
+const formulario =
+document.getElementById("formulario");
+
+const tituloFormulario =
+document.getElementById("tituloFormulario");
+
+const nombreInput =
+document.getElementById("nombre");
+
+const btnConfirmar =
+document.getElementById("btnConfirmar");
+
+const btnCerrar =
+document.getElementById("btnCerrar");
+
+const resultadoExito =
+document.getElementById("resultadoExito");
+
+const resultadoNo =
+document.getElementById("resultadoNo");
+
+
+/* =====================================================
+   AUDIO
+===================================================== */
+
+let audioContext = null;
+
+let master = null;
+
+let audioActivo = false;
+
+let intervalos = [];
+
+
+/* =====================================================
+   CREAR AUDIO
+===================================================== */
+
+function iniciarAudio() {
+
+  if (audioActivo) {
+    return;
+  }
+
+  const AudioContext =
+    window.AudioContext ||
+    window.webkitAudioContext;
+
+
+  if (!AudioContext) {
+
+    alert(
+      "Tu navegador no permite reproducir este ambiente."
     );
 
-
-    /* ======================================
-       AUDIO DE HALLOWEEN
-    ======================================= */
-
-    let audioContext = null;
-
-    let masterGain = null;
-
-    let ambienteActivo = false;
-
-    let osciladores = [];
+    return;
+  }
 
 
-    function iniciarAmbiente() {
-
-      if (ambienteActivo) {
-        return;
-      }
-
-      try {
-
-        audioContext =
-          new (
-            window.AudioContext ||
-            window.webkitAudioContext
-          )();
+  audioContext =
+    new AudioContext();
 
 
-        masterGain =
-          audioContext.createGain();
+  audioContext.resume();
 
 
-        masterGain.gain.value =
-          0.035;
+  master =
+    audioContext.createGain();
 
 
-        masterGain.connect(
-          audioContext.destination
-        );
+  /*
+     AHORA SÍ HAY VOLUMEN
+  */
+
+  master.gain.value = 0.18;
 
 
-        /*
-          TONO GRAVE
-        */
-
-        crearDrone(
-          55,
-          0.025
-        );
+  master.connect(
+    audioContext.destination
+  );
 
 
-        /*
-          TONO DE TERROR
-        */
+  /* DRONE GRAVE */
 
-        crearDrone(
-          82.41,
-          0.012
-        );
-
-
-        crearDrone(
-          110,
-          0.008
-        );
+  crearTono(
+    55,
+    "sawtooth",
+    .08
+  );
 
 
-        ambienteActivo = true;
+  crearTono(
+    73.42,
+    "sine",
+    .045
+  );
 
 
-        btnMusica.textContent =
-          "🔊 AMBIENTE ACTIVADO";
+  crearTono(
+    82.41,
+    "triangle",
+    .035
+  );
 
 
-      } catch (error) {
+  /*
+     LATIDO
+  */
 
-        console.log(
-          "Audio no disponible:",
-          error
-        );
-
-      }
-
-    }
+  let latido = false;
 
 
-    function crearDrone(
-      frecuencia,
-      volumen
-    ) {
-
-      const oscillator =
-        audioContext.createOscillator();
-
-
-      const gain =
-        audioContext.createGain();
-
-
-      oscillator.type =
-        "sine";
-
-
-      oscillator.frequency.value =
-        frecuencia;
-
-
-      gain.gain.value =
-        volumen;
-
-
-      oscillator.connect(gain);
-
-      gain.connect(masterGain);
-
-
-      oscillator.start();
-
-
-      osciladores.push(
-        oscillator
-      );
-
-    }
-
-
-    /* ======================================
-       BOTÓN AUDIO
-    ======================================= */
-
-    btnMusica.addEventListener(
-      "click",
+  const heartbeat =
+    setInterval(
       function () {
 
         if (!audioContext) {
-
-          iniciarAmbiente();
-
           return;
-
         }
 
 
-        if (
-          audioContext.state ===
-          "running"
-        ) {
-
-          audioContext.suspend();
-
-          btnMusica.textContent =
-            "🔇 ACTIVAR AMBIENTE";
-
-        } else {
-
-          audioContext.resume();
-
-          btnMusica.textContent =
-            "🔊 AMBIENTE ACTIVADO";
-
-        }
-
-      }
-    );
+        const ahora =
+          audioContext.currentTime;
 
 
-    /* ======================================
-       ASISTIRÉ
-    ======================================= */
-
-    btnAsistire.addEventListener(
-      "click",
-      function () {
-
-        tipoConfirmacion = "Sí";
-
-        tituloFormulario.textContent =
-          "🎃 Confirmar asistencia";
-
-        formulario.style.display =
-          "block";
-
-        resultadoExito.style.display =
-          "none";
-
-        resultadoNo.style.display =
-          "none";
-
-        nombreInput.value = "";
-
-        nombreInput.focus();
-
-      }
-    );
+        const osc =
+          audioContext.createOscillator();
 
 
-    /* ======================================
-       NO ASISTIRÉ
-    ======================================= */
-
-    btnNoAsistire.addEventListener(
-      "click",
-      function () {
-
-        tipoConfirmacion = "No";
-
-        tituloFormulario.textContent =
-          "👻 Confirmar que no podrás asistir";
-
-        formulario.style.display =
-          "block";
-
-        resultadoExito.style.display =
-          "none";
-
-        resultadoNo.style.display =
-          "none";
-
-        nombreInput.value = "";
-
-        nombreInput.focus();
-
-      }
-    );
+        const gain =
+          audioContext.createGain();
 
 
-    /* ======================================
-       UBICACIÓN
-    ======================================= */
+        osc.type =
+          "sine";
 
-    btnUbicacion.addEventListener(
-      "click",
-      function () {
 
-        window.open(
-          URL_MAPS,
-          "_blank"
+        osc.frequency.value =
+          latido
+            ? 48
+            : 38;
+
+
+        gain.gain.setValueAtTime(
+          0,
+          ahora
         );
 
-      }
+
+        gain.gain.linearRampToValueAtTime(
+          .35,
+          ahora + .03
+        );
+
+
+        gain.gain.exponentialRampToValueAtTime(
+          .001,
+          ahora + .18
+        );
+
+
+        osc.connect(gain);
+
+        gain.connect(master);
+
+
+        osc.start(ahora);
+
+        osc.stop(
+          ahora + .2
+        );
+
+
+        latido =
+          !latido;
+
+      },
+      650
     );
 
 
-    /* ======================================
-       CANCELAR
-    ======================================= */
+  intervalos.push(
+    heartbeat
+  );
 
-    btnCerrar.addEventListener(
-      "click",
+
+  /*
+     NOTAS TERRORÍFICAS
+  */
+
+  const notas = [
+    110,
+    116.54,
+    123.47,
+    138.59,
+    146.83
+  ];
+
+
+  const notasTerror =
+    setInterval(
       function () {
 
-        formulario.style.display =
-          "none";
-
-        nombreInput.value = "";
-
-      }
-    );
-
-
-    /* ======================================
-       CONFIRMAR
-    ======================================= */
-
-    btnConfirmar.addEventListener(
-      "click",
-      function () {
-
-        const nombre =
-          nombreInput.value.trim();
-
-
-        if (nombre === "") {
-
-          alert(
-            "👻 Escribe tu nombre primero."
-          );
-
-          nombreInput.focus();
-
+        if (!audioContext) {
           return;
-
         }
 
 
-        btnConfirmar.disabled =
-          true;
-
-        btnConfirmar.textContent =
-          "⏳ GUARDANDO...";
-
-
-        const datos =
-          new URLSearchParams();
+        const frecuencia =
+          notas[
+            Math.floor(
+              Math.random() *
+              notas.length
+            )
+          ];
 
 
-        datos.append(
-          "nombre",
-          nombre
+        crearSusto(
+          frecuencia
         );
 
-
-        datos.append(
-          "confirmacion",
-          tipoConfirmacion
-        );
-
-
-        fetch(
-          URL_REGISTRO,
-          {
-
-            method: "POST",
-
-            mode: "no-cors",
-
-            headers: {
-
-              "Content-Type":
-                "application/x-www-form-urlencoded"
-
-            },
-
-            body:
-              datos.toString()
-
-          }
-        )
-        .then(
-          function () {
-
-            mostrarResultado();
-
-          }
-        )
-        .catch(
-          function (error) {
-
-            console.error(
-              error
-            );
-
-            alert(
-              "⚠️ Ocurrió un problema al enviar la respuesta."
-            );
-
-            btnConfirmar.disabled =
-              false;
-
-            btnConfirmar.textContent =
-              "✅ CONFIRMAR";
-
-          }
-        );
-
-      }
+      },
+      5000
     );
 
 
-    /* ======================================
-       RESULTADO
-    ======================================= */
-
-    function mostrarResultado() {
-
-      formulario.style.display =
-        "none";
+  intervalos.push(
+    notasTerror
+  );
 
 
-      if (
-        tipoConfirmacion === "Sí"
-      ) {
-
-        resultadoExito.style.display =
-          "block";
-
-        resultadoNo.style.display =
-          "none";
-
-      } else {
-
-        resultadoNo.style.display =
-          "block";
-
-        resultadoExito.style.display =
-          "none";
-
-      }
+  audioActivo = true;
 
 
-      btnConfirmar.disabled =
-        false;
+  btnMusica.textContent =
+    "🔊 TERROR ACTIVADO";
 
-      btnConfirmar.textContent =
-        "✅ CONFIRMAR";
+}
+
+
+/* =====================================================
+   TONO
+===================================================== */
+
+function crearTono(
+  frecuencia,
+  tipo,
+  volumen
+) {
+
+  const osc =
+    audioContext.createOscillator();
+
+
+  const gain =
+    audioContext.createGain();
+
+
+  osc.type =
+    tipo;
+
+
+  osc.frequency.value =
+    frecuencia;
+
+
+  gain.gain.value =
+    volumen;
+
+
+  osc.connect(gain);
+
+  gain.connect(master);
+
+
+  osc.start();
+
+
+  return osc;
+}
+
+
+/* =====================================================
+   SONIDO DE SUSTO
+===================================================== */
+
+function crearSusto(
+  frecuencia
+) {
+
+  const ahora =
+    audioContext.currentTime;
+
+
+  const osc =
+    audioContext.createOscillator();
+
+
+  const gain =
+    audioContext.createGain();
+
+
+  osc.type =
+    "sawtooth";
+
+
+  osc.frequency.setValueAtTime(
+    frecuencia * 2,
+    ahora
+  );
+
+
+  osc.frequency.exponentialRampToValueAtTime(
+    frecuencia,
+    ahora + 1.5
+  );
+
+
+  gain.gain.setValueAtTime(
+    0,
+    ahora
+  );
+
+
+  gain.gain.linearRampToValueAtTime(
+    .12,
+    ahora + .05
+  );
+
+
+  gain.gain.exponentialRampToValueAtTime(
+    .001,
+    ahora + 1.5
+  );
+
+
+  osc.connect(gain);
+
+  gain.connect(master);
+
+
+  osc.start(ahora);
+
+  osc.stop(
+    ahora + 1.6
+  );
+
+}
+
+
+/* =====================================================
+   ENTRAR
+===================================================== */
+
+btnEntrar.addEventListener(
+  "click",
+  function () {
+
+    /*
+       EL CLICK DEL USUARIO
+       ACTIVA EL AUDIO
+    */
+
+    iniciarAudio();
+
+
+    entrada.classList.add(
+      "oculta"
+    );
+
+  }
+);
+
+
+/* =====================================================
+   BOTÓN AUDIO
+===================================================== */
+
+btnMusica.addEventListener(
+  "click",
+  function () {
+
+    if (!audioContext) {
+
+      iniciarAudio();
+
+      return;
 
     }
 
 
-  </script>
+    if (
+      audioContext.state ===
+      "running"
+    ) {
 
+      audioContext.suspend();
+
+      btnMusica.textContent =
+        "🔇 ACTIVAR TERROR";
+
+    } else {
+
+      audioContext.resume();
+
+      btnMusica.textContent =
+        "🔊 TERROR ACTIVADO";
+
+    }
+
+  }
+);
+
+
+/* =====================================================
+   ASISTIR
+===================================================== */
+
+btnAsistire.addEventListener(
+  "click",
+  function () {
+
+    tipoConfirmacion =
+      "Sí";
+
+
+    tituloFormulario.textContent =
+      "🎃 Confirmar asistencia";
+
+
+    formulario.style.display =
+      "block";
+
+
+    resultadoExito.style.display =
+      "none";
+
+
+    resultadoNo.style.display =
+      "none";
+
+
+    nombreInput.value =
+      "";
+
+
+    nombreInput.focus();
+
+  }
+);
+
+
+/* =====================================================
+   NO ASISTIR
+===================================================== */
+
+btnNoAsistire.addEventListener(
+  "click",
+  function () {
+
+    tipoConfirmacion =
+      "No";
+
+
+    tituloFormulario.textContent =
+      "👻 Confirmar que no podrás asistir";
+
+
+    formulario.style.display =
+      "block";
+
+
+    resultadoExito.style.display =
+      "none";
+
+
+    resultadoNo.style.display =
+      "none";
+
+
+    nombreInput.value =
+      "";
+
+
+    nombreInput.focus();
+
+  }
+);
+
+
+/* =====================================================
+   UBICACIÓN
+===================================================== */
+
+btnUbicacion.addEventListener(
+  "click",
+  function () {
+
+    window.open(
+      URL_MAPS,
+      "_blank"
+    );
+
+  }
+);
+
+
+/* =====================================================
+   CERRAR
+===================================================== */
+
+btnCerrar.addEventListener(
+  "click",
+  function () {
+
+    formulario.style.display =
+      "none";
+
+    nombreInput.value =
+      "";
+
+  }
+);
+
+
+/* =====================================================
+   CONFIRMAR
+===================================================== */
+
+btnConfirmar.addEventListener(
+  "click",
+  function () {
+
+    const nombre =
+      nombreInput.value.trim();
+
+
+    if (nombre === "") {
+
+      alert(
+        "☠️ Escribe tu nombre primero."
+      );
+
+      nombreInput.focus();
+
+      return;
+    }
+
+
+    btnConfirmar.disabled =
+      true;
+
+
+    btnConfirmar.textContent =
+      "☠️ ENVIANDO...";
+
+
+    const datos =
+      new URLSearchParams();
+
+
+    datos.append(
+      "nombre",
+      nombre
+    );
+
+
+    datos.append(
+      "confirmacion",
+      tipoConfirmacion
+    );
+
+
+    fetch(
+      URL_REGISTRO,
+      {
+
+        method: "POST",
+
+        mode: "no-cors",
+
+        headers: {
+          "Content-Type":
+            "application/x-www-form-urlencoded"
+        },
+
+        body:
+          datos.toString()
+
+      }
+    )
+    .then(
+      function () {
+
+        mostrarResultado();
+
+      }
+    )
+    .catch(
+      function (error) {
+
+        console.error(
+          error
+        );
+
+
+        alert(
+          "⚠️ Ocurrió un problema al enviar."
+        );
+
+
+        btnConfirmar.disabled =
+          false;
+
+
+        btnConfirmar.textContent =
+          "✅ CONFIRMAR";
+
+      }
+    );
+
+  }
+);
+
+
+/* =====================================================
+   RESULTADO
+===================================================== */
+
+function mostrarResultado() {
+
+  formulario.style.display =
+    "none";
+
+
+  if (
+    tipoConfirmacion ===
+    "Sí"
+  ) {
+
+    resultadoExito.style.display =
+      "block";
+
+    resultadoNo.style.display =
+      "none";
+
+  } else {
+
+    resultadoNo.style.display =
+      "block";
+
+    resultadoExito.style.display =
+      "none";
+
+  }
+
+
+  btnConfirmar.disabled =
+    false;
+
+
+  btnConfirmar.textContent =
+    "✅ CONFIRMAR";
+
+}
+
+
+</script>
 
 </body>
 </html>
