@@ -1,1766 +1,3 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-
-<meta charset="UTF-8">
-
-<meta
-  name="viewport"
-  content="width=device-width, initial-scale=1.0"
->
-
-<title>Halloween 2026 ☠️</title>
-
-<style>
-
-/* =====================================================
-   BASE
-===================================================== */
-
-* {
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-
-  margin: 0;
-
-  min-height: 100vh;
-
-  font-family:
-    Arial,
-    Helvetica,
-    sans-serif;
-
-  color: white;
-
-  background:
-
-    linear-gradient(
-      rgba(0,0,0,.48),
-      rgba(0,0,0,.70)
-    ),
-
-    url("./halloween-background.png")
-    center center / cover fixed no-repeat;
-
-  overflow-x: hidden;
-}
-
-
-/* =====================================================
-   OSCURIDAD
-===================================================== */
-
-body::before {
-
-  content: "";
-
-  position: fixed;
-
-  inset: 0;
-
-  z-index: 1;
-
-  pointer-events: none;
-
-  background:
-
-    radial-gradient(
-      ellipse at center,
-      transparent 25%,
-      rgba(0,0,0,.82) 100%
-    );
-}
-
-
-/* =====================================================
-   NIEBLA
-===================================================== */
-
-.niebla {
-
-  position: fixed;
-
-  inset: -20%;
-
-  z-index: 4;
-
-  pointer-events: none;
-
-  opacity: .35;
-
-  filter: blur(25px);
-
-  background:
-
-    radial-gradient(
-      ellipse at 20% 60%,
-      rgba(255,255,255,.18),
-      transparent 30%
-    ),
-
-    radial-gradient(
-      ellipse at 75% 45%,
-      rgba(255,255,255,.15),
-      transparent 35%
-    );
-
-  animation:
-    moverNiebla 14s ease-in-out infinite alternate;
-}
-
-@keyframes moverNiebla {
-
-  from {
-
-    transform:
-      translateX(-4%)
-      translateY(2%)
-      scale(1);
-
-  }
-
-  to {
-
-    transform:
-      translateX(5%)
-      translateY(-3%)
-      scale(1.15);
-
-  }
-
-}
-
-
-/* =====================================================
-   RELÁMPAGO
-===================================================== */
-
-#relampago {
-
-  position: fixed;
-
-  inset: 0;
-
-  z-index: 80;
-
-  pointer-events: none;
-
-  background: white;
-
-  opacity: 0;
-}
-
-#relampago.activar {
-
-  animation:
-    relampagoFlash .42s ease-out;
-}
-
-@keyframes relampagoFlash {
-
-  0% {
-    opacity: 0;
-  }
-
-  10% {
-    opacity: .95;
-  }
-
-  18% {
-    opacity: .08;
-  }
-
-  32% {
-    opacity: .8;
-  }
-
-  48% {
-    opacity: .03;
-  }
-
-  100% {
-    opacity: 0;
-  }
-
-}
-
-
-/* =====================================================
-   FLASH ROJO
-===================================================== */
-
-#flashRojo {
-
-  position: fixed;
-
-  inset: 0;
-
-  z-index: 79;
-
-  pointer-events: none;
-
-  background:
-    rgba(180,0,0,.4);
-
-  opacity: 0;
-}
-
-#flashRojo.activar {
-
-  animation:
-    flashRojo .6s ease-out;
-}
-
-@keyframes flashRojo {
-
-  0% {
-    opacity: 0;
-  }
-
-  25% {
-    opacity: .65;
-  }
-
-  100% {
-    opacity: 0;
-  }
-
-}
-
-
-/* =====================================================
-   SANGRE
-===================================================== */
-
-.sangre {
-
-  position: fixed;
-
-  top: 0;
-  left: 0;
-
-  width: 100%;
-
-  height: 85px;
-
-  z-index: 25;
-
-  pointer-events: none;
-
-  background:
-
-    radial-gradient(
-      ellipse at 10% 0%,
-      rgba(130,0,0,.85),
-      transparent 45%
-    ),
-
-    radial-gradient(
-      ellipse at 45% 0%,
-      rgba(80,0,0,.7),
-      transparent 40%
-    ),
-
-    radial-gradient(
-      ellipse at 80% 0%,
-      rgba(140,0,0,.8),
-      transparent 45%
-    );
-}
-
-
-/* =====================================================
-   OJOS
-===================================================== */
-
-.ojos {
-
-  position: fixed;
-
-  z-index: 20;
-
-  pointer-events: none;
-
-  color: #ff0000;
-
-  font-size: 25px;
-
-  letter-spacing: 12px;
-
-  text-shadow:
-
-    0 0 5px red,
-    0 0 15px red,
-    0 0 35px red;
-
-  opacity: 0;
-
-  animation:
-    ojosAparecer 6s infinite;
-}
-
-.ojos.uno {
-
-  top: 27%;
-  left: 5%;
-}
-
-.ojos.dos {
-
-  top: 44%;
-  right: 5%;
-
-  animation-delay: 2s;
-}
-
-.ojos.tres {
-
-  bottom: 22%;
-  left: 10%;
-
-  animation-delay: 4s;
-}
-
-@keyframes ojosAparecer {
-
-  0%,
-  55%,
-  100% {
-    opacity: 0;
-  }
-
-  58% {
-    opacity: 1;
-  }
-
-  65% {
-    opacity: .9;
-  }
-
-  68% {
-    opacity: 0;
-  }
-
-  70% {
-    opacity: .9;
-  }
-
-  73% {
-    opacity: 0;
-  }
-
-}
-
-
-/* =====================================================
-   MURCIÉLAGOS
-===================================================== */
-
-.murcielago {
-
-  position: fixed;
-
-  z-index: 18;
-
-  pointer-events: none;
-
-  font-size: 38px;
-
-  opacity: .8;
-
-  animation:
-    volar 12s linear infinite;
-}
-
-.murcielago.a {
-
-  top: 12%;
-  left: -70px;
-}
-
-.murcielago.b {
-
-  top: 31%;
-  left: -100px;
-
-  animation-delay: 4s;
-
-  animation-duration: 15s;
-}
-
-.murcielago.c {
-
-  top: 64%;
-  left: -80px;
-
-  animation-delay: 8s;
-
-  animation-duration: 13s;
-}
-
-@keyframes volar {
-
-  0% {
-
-    transform:
-      translateX(-100px)
-      translateY(0)
-      rotate(-5deg);
-
-  }
-
-  45% {
-
-    transform:
-      translateX(45vw)
-      translateY(-70px)
-      rotate(5deg);
-
-  }
-
-  100% {
-
-    transform:
-      translateX(110vw)
-      translateY(30px)
-      rotate(-4deg);
-
-  }
-
-}
-
-
-/* =====================================================
-   MONSTRUOS
-===================================================== */
-
-.monstruo {
-
-  position: fixed;
-
-  z-index: 17;
-
-  pointer-events: none;
-
-  font-size: 58px;
-
-  opacity: .55;
-
-  filter:
-    drop-shadow(0 0 15px #ff2600);
-
-  animation:
-    monstruoFlotar 5s ease-in-out infinite;
-}
-
-.monstruo.uno {
-
-  top: 17%;
-  left: 2%;
-}
-
-.monstruo.dos {
-
-  top: 55%;
-  right: 2%;
-
-  animation-delay: 2s;
-}
-
-.monstruo.tres {
-
-  bottom: 12%;
-  left: 3%;
-
-  animation-delay: 4s;
-}
-
-@keyframes monstruoFlotar {
-
-  0%,100% {
-
-    transform:
-      translateY(0)
-      rotate(-5deg);
-
-  }
-
-  50% {
-
-    transform:
-      translateY(-20px)
-      rotate(5deg);
-
-  }
-
-}
-
-
-/* =====================================================
-   PARTÍCULAS
-===================================================== */
-
-.particula {
-
-  position: fixed;
-
-  z-index: 16;
-
-  width: 3px;
-
-  height: 3px;
-
-  border-radius: 50%;
-
-  background: #ff6500;
-
-  box-shadow:
-    0 0 8px #ff4500;
-
-  pointer-events: none;
-
-  animation:
-    caer linear infinite;
-}
-
-@keyframes caer {
-
-  from {
-
-    transform:
-      translateY(-20px);
-
-    opacity: 0;
-
-  }
-
-  20% {
-
-    opacity: .8;
-
-  }
-
-  to {
-
-    transform:
-      translateY(110vh);
-
-    opacity: 0;
-
-  }
-
-}
-
-
-/* =====================================================
-   ENTRADA
-===================================================== */
-
-#entrada {
-
-  position: fixed;
-
-  inset: 0;
-
-  z-index: 100;
-
-  display: flex;
-
-  justify-content: center;
-
-  align-items: center;
-
-  text-align: center;
-
-  padding: 25px;
-
-  background:
-
-    linear-gradient(
-      rgba(0,0,0,.55),
-      rgba(0,0,0,.78)
-    ),
-
-    url("./halloween-background.png")
-    center center / cover no-repeat;
-
-  transition:
-    opacity 1s ease,
-    visibility 1s ease;
-}
-
-#entrada.oculta {
-
-  opacity: 0;
-
-  visibility: hidden;
-}
-
-.entrada-contenido {
-
-  max-width: 650px;
-
-  animation:
-    entrada .9s ease;
-}
-
-@keyframes entrada {
-
-  from {
-
-    opacity: 0;
-
-    transform:
-      scale(.7)
-      translateY(30px);
-
-  }
-
-  to {
-
-    opacity: 1;
-
-    transform:
-      scale(1)
-      translateY(0);
-
-  }
-
-}
-
-.entrada-calavera {
-
-  font-size: 100px;
-
-  filter:
-    drop-shadow(0 0 25px red);
-
-  animation:
-    calavera 2.5s ease-in-out infinite;
-}
-
-@keyframes calavera {
-
-  0%,100% {
-
-    transform:
-      rotate(-5deg);
-
-  }
-
-  50% {
-
-    transform:
-      rotate(5deg)
-      scale(1.08);
-
-  }
-
-}
-
-.entrada-contenido h1 {
-
-  margin: 5px 0;
-
-  font-size:
-    clamp(45px,12vw,85px);
-
-  color: #ff5000;
-
-  text-shadow:
-
-    0 0 10px #ff3000,
-    0 0 30px red,
-    0 0 60px rgba(255,0,0,.8);
-}
-
-.entrada-subtitulo {
-
-  color: #ddd;
-
-  font-size: 20px;
-
-  margin-bottom: 12px;
-}
-
-.entrada-peligro {
-
-  color: #ff7777;
-
-  font-size: 18px;
-
-  font-weight: bold;
-
-  margin-bottom: 30px;
-}
-
-#btnEntrar {
-
-  border:
-    2px solid #ff4500;
-
-  border-radius: 16px;
-
-  padding:
-    18px 35px;
-
-  font-size: 19px;
-
-  font-weight: bold;
-
-  color: white;
-
-  cursor: pointer;
-
-  background:
-
-    linear-gradient(
-      135deg,
-      #ff6500,
-      #8b0000
-    );
-
-  box-shadow:
-    0 0 25px rgba(255,40,0,.7);
-
-  animation:
-    pulsar 2s infinite;
-}
-
-@keyframes pulsar {
-
-  50% {
-
-    box-shadow:
-      0 0 50px rgba(255,0,0,1);
-
-  }
-
-}
-
-
-/* =====================================================
-   AUDIO
-===================================================== */
-
-#btnMusica {
-
-  position: fixed;
-
-  top: 18px;
-
-  right: 18px;
-
-  z-index: 90;
-
-  border:
-    1px solid #ff4500;
-
-  background:
-    rgba(5,0,8,.9);
-
-  color: white;
-
-  border-radius: 50px;
-
-  padding:
-    12px 18px;
-
-  cursor: pointer;
-
-  font-weight: bold;
-
-  box-shadow:
-    0 0 20px rgba(255,50,0,.7);
-}
-
-
-/* =====================================================
-   CONTENEDOR
-===================================================== */
-
-.contenedor {
-
-  position: relative;
-
-  z-index: 30;
-
-  width: 100%;
-
-  max-width: 680px;
-
-  margin: auto;
-
-  padding:
-    100px 18px 35px;
-}
-
-
-/* =====================================================
-   TARJETA
-===================================================== */
-
-.tarjeta {
-
-  background:
-
-    linear-gradient(
-      180deg,
-      rgba(10,4,15,.90),
-      rgba(2,1,5,.94)
-    );
-
-  border:
-    2px solid #9b2cff;
-
-  border-radius: 28px;
-
-  padding:
-    32px 22px;
-
-  text-align: center;
-
-  box-shadow:
-
-    0 0 30px rgba(155,44,255,.6),
-    0 0 90px rgba(255,0,0,.18);
-
-  backdrop-filter:
-    blur(5px);
-}
-
-
-/* =====================================================
-   TITULO
-===================================================== */
-
-.emoji-principal {
-
-  font-size: 78px;
-
-  animation:
-    flotar 3s ease-in-out infinite;
-
-  filter:
-    drop-shadow(0 0 18px #ff6500);
-}
-
-@keyframes flotar {
-
-  0%,100% {
-    transform:
-      translateY(0);
-  }
-
-  50% {
-    transform:
-      translateY(-12px);
-  }
-
-}
-
-.titulo {
-
-  margin: 5px 0;
-
-  font-size:
-    clamp(38px,10vw,58px);
-
-  color: #ff6500;
-
-  text-shadow:
-
-    0 0 12px #ff4500,
-    0 0 30px red;
-}
-
-.subtitulo {
-
-  font-size: 18px;
-
-  color: #e0c4ff;
-
-  margin:
-    10px 0 28px;
-}
-
-
-/* =====================================================
-   DATOS
-===================================================== */
-
-.datos {
-
-  display: grid;
-
-  gap: 12px;
-
-  margin: 25px 0;
-}
-
-.dato {
-
-  background:
-    rgba(70,10,100,.35);
-
-  border:
-    1px solid rgba(170,50,255,.5);
-
-  border-radius: 15px;
-
-  padding: 15px;
-
-  font-size: 17px;
-}
-
-.dato strong {
-
-  display: block;
-
-  color: #ff9d3d;
-
-  font-size: 20px;
-
-  margin-bottom: 4px;
-}
-
-
-/* =====================================================
-   NOTA
-===================================================== */
-
-.nota {
-
-  background:
-
-    linear-gradient(
-      135deg,
-      rgba(100,15,0,.38),
-      rgba(30,0,20,.42)
-    );
-
-  border:
-    1px solid #b95a00;
-
-  border-radius: 18px;
-
-  padding: 18px;
-
-  margin: 22px 0;
-
-  color: #ffe4c4;
-
-  line-height: 1.6;
-}
-
-
-/* =====================================================
-   BOTONES
-===================================================== */
-
-.botones {
-
-  display: grid;
-
-  gap: 13px;
-
-  margin-top: 25px;
-}
-
-.boton {
-
-  border: none;
-
-  border-radius: 15px;
-
-  padding: 17px;
-
-  font-size: 18px;
-
-  font-weight: bold;
-
-  cursor: pointer;
-
-  color: white;
-
-  transition: .2s ease;
-}
-
-.boton:hover {
-
-  transform:
-    translateY(-3px);
-
-  filter:
-    brightness(1.15);
-}
-
-.asistire {
-
-  background:
-    linear-gradient(
-      135deg,
-      #ff7600,
-      #e52d00
-    );
-}
-
-.no-asistire {
-
-  background:
-    linear-gradient(
-      135deg,
-      #7025b5,
-      #351064
-    );
-}
-
-.ubicacion {
-
-  background:
-    linear-gradient(
-      135deg,
-      #15803d,
-      #064e22
-    );
-}
-
-
-/* =====================================================
-   FORMULARIO
-===================================================== */
-
-.formulario {
-
-  display: none;
-
-  margin-top: 20px;
-
-  padding: 20px;
-
-  background:
-    rgba(255,255,255,.05);
-
-  border:
-    1px solid rgba(255,255,255,.15);
-
-  border-radius: 18px;
-}
-
-.formulario h3 {
-
-  color: #ff9d3d;
-
-  margin-top: 0;
-}
-
-.campo {
-
-  text-align: left;
-
-  margin-bottom: 15px;
-}
-
-.campo label {
-
-  display: block;
-
-  margin-bottom: 7px;
-
-  color: #e7d8f5;
-
-  font-weight: bold;
-}
-
-input {
-
-  width: 100%;
-
-  padding: 15px;
-
-  border-radius: 12px;
-
-  border:
-    1px solid #6b21a8;
-
-  background: #130d1b;
-
-  color: white;
-
-  font-size: 16px;
-
-  outline: none;
-}
-
-input:focus {
-
-  border-color: #ff7b00;
-
-  box-shadow:
-    0 0 10px rgba(255,123,0,.3);
-}
-
-.ayuda-codigo {
-
-  font-size: 13px;
-
-  color: #aaa;
-
-  margin-top: 6px;
-}
-
-.confirmar {
-
-  width: 100%;
-
-  background:
-    linear-gradient(
-      135deg,
-      #16a34a,
-      #15803d
-    );
-}
-
-.cancelar {
-
-  width: 100%;
-
-  background: #33303a;
-
-  margin-top: 10px;
-}
-
-
-/* =====================================================
-   BLOQUEADO
-===================================================== */
-
-.bloqueado {
-
-  display: none;
-
-  margin-top: 20px;
-
-  padding: 22px;
-
-  border-radius: 18px;
-
-  background:
-    rgba(100,0,0,.25);
-
-  border:
-    1px solid #ef4444;
-
-  color: #fecaca;
-
-  line-height: 1.6;
-
-  text-align: center;
-}
-
-.whatsapp {
-
-  display: inline-block;
-
-  margin-top: 15px;
-
-  padding: 14px 20px;
-
-  border-radius: 12px;
-
-  text-decoration: none;
-
-  color: white;
-
-  background:
-    #16a34a;
-
-  font-weight: bold;
-
-  box-shadow:
-    0 0 15px rgba(22,163,74,.35);
-}
-
-
-/* =====================================================
-   RESULTADOS
-===================================================== */
-
-.resultado {
-
-  display: none;
-
-  margin-top: 20px;
-
-  padding: 22px;
-
-  border-radius: 18px;
-
-  font-weight: bold;
-
-  font-size: 19px;
-
-  line-height: 1.5;
-}
-
-.resultado.exito {
-
-  background:
-    rgba(22,163,74,.12);
-
-  border:
-    1px solid #16a34a;
-
-  color: #86efac;
-}
-
-.resultado.no {
-
-  background:
-    rgba(127,29,29,.18);
-
-  border:
-    1px solid #ef4444;
-
-  color: #fca5a5;
-}
-
-
-/* =====================================================
-   PIE
-===================================================== */
-
-.pie {
-
-  margin-top: 28px;
-
-  color: #c1b7cb;
-
-  font-size: 13px;
-}
-
-
-/* =====================================================
-   CELULAR
-===================================================== */
-
-@media (max-width:600px) {
-
-  body {
-
-    background-attachment:
-      scroll;
-  }
-
-  .contenedor {
-
-    padding:
-      80px 12px 25px;
-  }
-
-  .tarjeta {
-
-    padding:
-      25px 15px;
-  }
-
-  .monstruo {
-
-    font-size: 40px;
-
-    opacity: .35;
-  }
-
-  .ojos {
-
-    font-size: 17px;
-
-    letter-spacing: 7px;
-  }
-
-  #btnMusica {
-
-    top: 10px;
-
-    right: 10px;
-
-    font-size: 11px;
-
-    padding:
-      9px 13px;
-  }
-
-}
-
-</style>
-</head>
-
-
-<body>
-
-
-<!-- =====================================================
-     AUDIO
-===================================================== -->
-
-<audio
-  id="audioHalloween"
-  loop
-  preload="auto"
->
-
-  <source
-    src="./placidplace-spooky-halloween-effects-with-thunder-121665.mp3"
-    type="audio/mpeg"
-  >
-
-</audio>
-
-
-<!-- =====================================================
-     EFECTOS
-===================================================== -->
-
-<div class="niebla"></div>
-
-<div id="relampago"></div>
-
-<div id="flashRojo"></div>
-
-<div class="sangre"></div>
-
-
-<!-- OJOS -->
-
-<div class="ojos uno">
-  ● ●
-</div>
-
-<div class="ojos dos">
-  ● ●
-</div>
-
-<div class="ojos tres">
-  ● ●
-</div>
-
-
-<!-- MURCIÉLAGOS -->
-
-<div class="murcielago a">
-  🦇
-</div>
-
-<div class="murcielago b">
-  🦇
-</div>
-
-<div class="murcielago c">
-  🦇
-</div>
-
-
-<!-- MONSTRUOS -->
-
-<div class="monstruo uno">
-  👹
-</div>
-
-<div class="monstruo dos">
-  👻
-</div>
-
-<div class="monstruo tres">
-  💀
-</div>
-
-
-<!-- PARTÍCULAS -->
-
-<div
-  class="particula"
-  style="left:5%;animation-duration:8s"
-></div>
-
-<div
-  class="particula"
-  style="left:15%;animation-duration:11s"
-></div>
-
-<div
-  class="particula"
-  style="left:25%;animation-duration:9s"
-></div>
-
-<div
-  class="particula"
-  style="left:35%;animation-duration:13s"
-></div>
-
-<div
-  class="particula"
-  style="left:48%;animation-duration:10s"
-></div>
-
-<div
-  class="particula"
-  style="left:60%;animation-duration:12s"
-></div>
-
-<div
-  class="particula"
-  style="left:72%;animation-duration:8s"
-></div>
-
-<div
-  class="particula"
-  style="left:85%;animation-duration:11s"
-></div>
-
-<div
-  class="particula"
-  style="left:95%;animation-duration:9s"
-></div>
-
-
-<!-- =====================================================
-     PANTALLA DE ENTRADA
-===================================================== -->
-
-<section id="entrada">
-
-  <div class="entrada-contenido">
-
-    <div class="entrada-calavera">
-      ☠️
-    </div>
-
-    <h1>
-      HALLOWEEN
-    </h1>
-
-    <div class="entrada-subtitulo">
-      6 DE NOVIEMBRE · 2026
-    </div>
-
-    <div class="entrada-peligro">
-      ⚠️ ENTRA BAJO TU PROPIO RIESGO ⚠️
-    </div>
-
-    <button id="btnEntrar">
-      ☠️ ENTRAR A LA FIESTA
-    </button>
-
-  </div>
-
-</section>
-
-
-<!-- AUDIO -->
-
-<button id="btnMusica">
-  🔊 ACTIVAR TERROR
-</button>
-
-
-<!-- =====================================================
-     CONTENIDO
-===================================================== -->
-
-<main class="contenedor">
-
-<div class="tarjeta">
-
-
-  <div class="emoji-principal">
-    🎃
-  </div>
-
-
-  <h1 class="titulo">
-    HALLOWEEN 2026
-  </h1>
-
-
-  <div class="subtitulo">
-    Una noche que probablemente deberíamos olvidar... 👻
-  </div>
-
-
-  <!-- DATOS -->
-
-  <div class="datos">
-
-
-    <div class="dato">
-
-      <strong>
-        📅 FECHA
-      </strong>
-
-      6 de noviembre de 2026
-
-    </div>
-
-
-    <div class="dato">
-
-      <strong>
-        🕖 HORA
-      </strong>
-
-      7:00 PM
-
-    </div>
-
-
-    <div class="dato">
-
-      <strong>
-        📍 LUGAR
-      </strong>
-
-      Tlalnepantla, Estado de México
-
-    </div>
-
-
-    <div class="dato">
-
-      <strong>
-        ☠️ DISFRAZ
-      </strong>
-
-      Obligatorio
-
-    </div>
-
-
-  </div>
-
-
-  <!-- NOTA -->
-
-  <div class="nota">
-
-    🍺 <strong>ES DE TRAJE</strong> 🍿
-
-    <br>
-
-    Trae cerveza, botana, comida
-    o algo para compartir.
-
-    <br><br>
-
-    <strong>
-      ¡Y NO OLVIDES TU DISFRAZ! 🎭
-    </strong>
-
-  </div>
-
-
-  <!-- BOTONES -->
-
-  <div class="botones">
-
-
-    <button
-      id="btnAsistire"
-      class="boton asistire"
-    >
-      🎃 ASISTIRÉ
-    </button>
-
-
-    <button
-      id="btnNoAsistire"
-      class="boton no-asistire"
-    >
-      👻 NO PODRÉ ASISTIR
-    </button>
-
-
-    <button
-      id="btnUbicacion"
-      class="boton ubicacion"
-    >
-      📍 VER UBICACIÓN
-    </button>
-
-
-  </div>
-
-
-  <!-- =================================================
-       FORMULARIO
-  ================================================= -->
-
-  <div
-    id="formulario"
-    class="formulario"
-  >
-
-    <h3 id="tituloFormulario">
-      🎃 Confirmar asistencia
-    </h3>
-
-
-    <p>
-      Necesitamos tu nombre y tu código secreto.
-    </p>
-
-
-    <!-- NOMBRE -->
-
-    <div class="campo">
-
-      <label for="nombre">
-        👤 Tu nombre
-      </label>
-
-      <input
-        type="text"
-        id="nombre"
-        placeholder="Escribe tu nombre"
-        autocomplete="name"
-      >
-
-    </div>
-
-
-    <!-- CÓDIGO -->
-
-    <div class="campo">
-
-      <label for="codigo">
-        🔐 Código secreto
-      </label>
-
-      <input
-        type="text"
-        id="codigo"
-        placeholder="Ejemplo: HAL001"
-        autocomplete="off"
-        autocapitalize="characters"
-      >
-
-      <div class="ayuda-codigo">
-        Escribe el código que recibiste con tu invitación.
-      </div>
-
-    </div>
-
-
-    <button
-      id="btnConfirmar"
-      class="boton confirmar"
-    >
-      ✅ CONFIRMAR
-    </button>
-
-
-    <button
-      id="btnCerrar"
-      class="boton cancelar"
-    >
-      ✖ CANCELAR
-    </button>
-
-  </div>
-
-
-  <!-- =================================================
-       BLOQUEADO
-  ================================================= -->
-
-  <div
-    id="bloqueado"
-    class="bloqueado"
-  >
-
-    <strong>
-      🔒 YA REGISTRASTE TU RESPUESTA
-    </strong>
-
-    <br><br>
-
-    Este código ya tiene una respuesta
-    registrada para Halloween 2026.
-
-    <br><br>
-
-    Si necesitas cambiar tu respuesta,
-    solicita el cambio por WhatsApp.
-
-    <br>
-
-    <a
-      id="btnWhatsApp"
-      class="whatsapp"
-      href="#"
-      target="_blank"
-    >
-      📲 SOLICITAR CAMBIO POR WHATSAPP
-    </a>
-
-  </div>
-
-
-  <!-- =================================================
-       RESULTADO SÍ
-  ================================================= -->
-
-  <div
-    id="resultadoExito"
-    class="resultado exito"
-  >
-
-    🎃 ¡ASISTENCIA CONFIRMADA!
-
-    <br><br>
-
-    ¡Nos vemos en Halloween!
-
-  </div>
-
-
-  <!-- =================================================
-       RESULTADO NO
-  ================================================= -->
-
-  <div
-    id="resultadoNo"
-    class="resultado no"
-  >
-
-    👻 ¡QUÉ LÁSTIMA!
-
-    <br><br>
-
-    Gracias por avisarnos.
-
-  </div>
-
-
-  <div class="pie">
-
-    🕷️ Halloween 2026
-    · Prepárate para una noche aterradora 🕷️
-
-  </div>
-
-
-</div>
-
-</main>
-
-
 <script>
 
 /* =====================================================
@@ -1770,23 +7,12 @@ input:focus {
 const URL_REGISTRO =
 "https://script.google.com/macros/s/AKfycbzF0Q-7I_Wu6oDmbNBnzwtfRnDcJ7_g1ZDEGfbMynK8mVz9bY3vOV-G9WmlluiboKrjLg/exec";
 
-
 const URL_MAPS =
 "https://www.google.com/maps/search/?api=1&query=José+Ma.+Morelos+2%2C+Habitacional%2C+54020+Tlalnepantla%2C+México";
 
-
 /*
-   IMPORTANTE:
-
-   CAMBIA ESTE NÚMERO POR TU WHATSAPP.
-
-   Formato:
-   521 + número
-
-   Ejemplo:
-   5215512345678
+   CAMBIA ESTE NÚMERO POR TU WHATSAPP
 */
-
 const WHATSAPP =
 "5215512345678";
 
@@ -1853,8 +79,7 @@ const resultadoNo =
 document.getElementById("resultadoNo");
 
 
-let tipoConfirmacion =
-"Sí";
+let tipoConfirmacion = "Sí";
 
 
 /* =====================================================
@@ -1869,17 +94,14 @@ audio.volume = 0.65;
 ===================================================== */
 
 btnEntrar.addEventListener(
-  "click",
-  function() {
+"click",
+function() {
 
-    entrada.classList.add(
-      "oculta"
-    );
+  entrada.classList.add("oculta");
 
-    reproducirAudio();
+  reproducirAudio();
 
-  }
-);
+});
 
 
 /* =====================================================
@@ -1891,20 +113,18 @@ function reproducirAudio() {
   audio.currentTime = 0;
 
   audio.play()
-
     .then(function() {
 
       btnMusica.textContent =
-        "🔊 AMBIENTE ACTIVADO";
+      "🔊 AMBIENTE ACTIVADO";
 
     })
-
     .catch(function(error) {
 
       console.log(error);
 
       btnMusica.textContent =
-        "🔊 TOCAR AUDIO";
+      "🔊 TOCAR AUDIO";
 
     });
 
@@ -1916,27 +136,26 @@ function reproducirAudio() {
 ===================================================== */
 
 btnMusica.addEventListener(
-  "click",
-  function() {
+"click",
+function() {
 
-    if (audio.paused) {
+  if (audio.paused) {
 
-      audio.play();
+    audio.play();
 
-      btnMusica.textContent =
-        "🔊 AMBIENTE ACTIVADO";
+    btnMusica.textContent =
+    "🔊 AMBIENTE ACTIVADO";
 
-    } else {
+  } else {
 
-      audio.pause();
+    audio.pause();
 
-      btnMusica.textContent =
-        "🔇 AMBIENTE APAGADO";
-
-    }
+    btnMusica.textContent =
+    "🔇 AMBIENTE APAGADO";
 
   }
-);
+
+});
 
 
 /* =====================================================
@@ -1945,32 +164,18 @@ btnMusica.addEventListener(
 
 function relampagoFlash() {
 
-  relampago.classList.remove(
-    "activar"
-  );
-
-  flashRojo.classList.remove(
-    "activar"
-  );
-
+  relampago.classList.remove("activar");
+  flashRojo.classList.remove("activar");
 
   void relampago.offsetWidth;
 
+  relampago.classList.add("activar");
 
-  relampago.classList.add(
-    "activar"
-  );
-
-
-  if (
-    Math.random() > .45
-  ) {
+  if (Math.random() > .45) {
 
     void flashRojo.offsetWidth;
 
-    flashRojo.classList.add(
-      "activar"
-    );
+    flashRojo.classList.add("activar");
 
   }
 
@@ -1980,22 +185,19 @@ function relampagoFlash() {
 function programarRelampago() {
 
   const tiempo =
-    Math.random() * 7000 + 3500;
-
+  Math.random() * 7000 + 3500;
 
   setTimeout(
-    function() {
+  function() {
 
-      relampagoFlash();
+    relampagoFlash();
 
-      programarRelampago();
+    programarRelampago();
 
-    },
-    tiempo
-  );
+  },
+  tiempo);
 
 }
-
 
 programarRelampago();
 
@@ -2004,46 +206,29 @@ programarRelampago();
    MOSTRAR FORMULARIO
 ===================================================== */
 
-function abrirFormulario(
-  tipo
-) {
+function abrirFormulario(tipo) {
 
-  tipoConfirmacion =
-    tipo;
+  tipoConfirmacion = tipo;
 
-
-  if (
-    tipo === "Sí"
-  ) {
+  if (tipo === "Sí") {
 
     tituloFormulario.textContent =
-      "🎃 Confirmar asistencia";
+    "🎃 Confirmar asistencia";
 
   } else {
 
     tituloFormulario.textContent =
-      "👻 Confirmar que no podrás asistir";
+    "👻 Confirmar que no podrás asistir";
 
   }
 
+  formulario.style.display = "block";
+  bloqueado.style.display = "none";
+  resultadoExito.style.display = "none";
+  resultadoNo.style.display = "none";
 
-  formulario.style.display =
-    "block";
-
-  bloqueado.style.display =
-    "none";
-
-  resultadoExito.style.display =
-    "none";
-
-  resultadoNo.style.display =
-    "none";
-
-  nombreInput.value =
-    "";
-
-  codigoInput.value =
-    "";
+  nombreInput.value = "";
+  codigoInput.value = "";
 
   nombreInput.focus();
 
@@ -2055,15 +240,12 @@ function abrirFormulario(
 ===================================================== */
 
 btnAsistire.addEventListener(
-  "click",
-  function() {
+"click",
+function() {
 
-    abrirFormulario(
-      "Sí"
-    );
+  abrirFormulario("Sí");
 
-  }
-);
+});
 
 
 /* =====================================================
@@ -2071,15 +253,12 @@ btnAsistire.addEventListener(
 ===================================================== */
 
 btnNoAsistire.addEventListener(
-  "click",
-  function() {
+"click",
+function() {
 
-    abrirFormulario(
-      "No"
-    );
+  abrirFormulario("No");
 
-  }
-);
+});
 
 
 /* =====================================================
@@ -2087,16 +266,15 @@ btnNoAsistire.addEventListener(
 ===================================================== */
 
 btnUbicacion.addEventListener(
-  "click",
-  function() {
+"click",
+function() {
 
-    window.open(
-      URL_MAPS,
-      "_blank"
-    );
+  window.open(
+    URL_MAPS,
+    "_blank"
+  );
 
-  }
-);
+});
 
 
 /* =====================================================
@@ -2104,45 +282,109 @@ btnUbicacion.addEventListener(
 ===================================================== */
 
 btnCerrar.addEventListener(
-  "click",
-  function() {
+"click",
+function() {
 
-    formulario.style.display =
-      "none";
+  formulario.style.display = "none";
 
-    nombreInput.value =
-      "";
+  nombreInput.value = "";
+  codigoInput.value = "";
 
-    codigoInput.value =
-      "";
-
-  }
-);
+});
 
 
 /* =====================================================
    WHATSAPP
 ===================================================== */
 
-function prepararWhatsApp(
-  nombre,
-  codigo
-) {
+function prepararWhatsApp(nombre, codigo) {
 
   const mensaje =
-    "Hola, quiero solicitar un cambio en mi respuesta de Halloween 2026.%0A%0A" +
-    "Nombre: " +
-    encodeURIComponent(nombre) +
-    "%0A" +
-    "Código: " +
-    encodeURIComponent(codigo);
-
+    "Hola, quiero solicitar un cambio en mi respuesta de Halloween 2026.\n\n" +
+    "Nombre: " + nombre + "\n" +
+    "Código: " + codigo;
 
   btnWhatsApp.href =
     "https://wa.me/" +
     WHATSAPP +
     "?text=" +
-    mensaje;
+    encodeURIComponent(mensaje);
+
+}
+
+
+/* =====================================================
+   VERIFICAR CÓDIGO CON JSONP
+===================================================== */
+
+function verificarCodigo(codigo, callback) {
+
+  const nombreCallback =
+    "respuestaCodigo_" + Date.now();
+
+  const script =
+    document.createElement("script");
+
+  window[nombreCallback] =
+  function(data) {
+
+    delete window[nombreCallback];
+
+    if (script.parentNode) {
+      script.parentNode.removeChild(script);
+    }
+
+    callback(data);
+
+  };
+
+  script.onerror =
+  function() {
+
+    delete window[nombreCallback];
+
+    if (script.parentNode) {
+      script.parentNode.removeChild(script);
+    }
+
+    callback({
+      bloqueado: false,
+      error: true
+    });
+
+  };
+
+  script.src =
+    URL_REGISTRO +
+    "?codigo=" +
+    encodeURIComponent(codigo) +
+    "&callback=" +
+    nombreCallback;
+
+  document.body.appendChild(script);
+
+}
+
+
+/* =====================================================
+   MOSTRAR BLOQUEADO
+===================================================== */
+
+function mostrarBloqueado(nombre, codigo) {
+
+  formulario.style.display = "none";
+
+  bloqueado.style.display = "block";
+
+  resultadoExito.style.display = "none";
+  resultadoNo.style.display = "none";
+
+  prepararWhatsApp(nombre, codigo);
+
+  bloqueado.scrollIntoView({
+    behavior: "smooth",
+    block: "center"
+  });
 
 }
 
@@ -2152,153 +394,187 @@ function prepararWhatsApp(
 ===================================================== */
 
 btnConfirmar.addEventListener(
-  "click",
-  function() {
+"click",
+function() {
 
-    const nombre =
-      nombreInput.value.trim();
+  const nombre =
+    nombreInput.value.trim();
 
-
-    const codigo =
-      codigoInput.value
-        .trim()
-        .toUpperCase();
-
-
-    /* VALIDAR NOMBRE */
-
-    if (
-      nombre === ""
-    ) {
-
-      alert(
-        "☠️ Escribe tu nombre."
-      );
-
-      nombreInput.focus();
-
-      return;
-
-    }
+  const codigo =
+    codigoInput.value
+      .trim()
+      .toUpperCase();
 
 
-    /* VALIDAR CÓDIGO */
+  /* VALIDAR NOMBRE */
 
-    if (
-      codigo === ""
-    ) {
+  if (nombre === "") {
 
-      alert(
-        "🔐 Escribe tu código secreto."
-      );
+    alert("☠️ Escribe tu nombre.");
 
-      codigoInput.focus();
+    nombreInput.focus();
 
-      return;
+    return;
 
-    }
+  }
 
 
-    btnConfirmar.disabled =
-      true;
+  /* VALIDAR CÓDIGO */
 
-    btnConfirmar.textContent =
-      "⏳ GUARDANDO...";
+  if (codigo === "") {
+
+    alert("🔐 Escribe tu código secreto.");
+
+    codigoInput.focus();
+
+    return;
+
+  }
 
 
-    const datos =
-      new URLSearchParams();
+  /* VALIDAR FORMATO */
 
+  if (!/^WEEN\d{4}$/.test(codigo)) {
 
-    datos.append(
-      "nombre",
-      nombre
+    alert(
+      "🔐 El código debe tener este formato:\n\nWEEN1138"
     );
 
+    codigoInput.focus();
 
-    datos.append(
-      "codigo",
-      codigo
-    );
+    return;
 
-
-    datos.append(
-      "confirmacion",
-      tipoConfirmacion
-    );
+  }
 
 
-    /*
-       IMPORTANTE:
+  btnConfirmar.disabled = true;
 
-       El Apps Script recibe:
+  btnConfirmar.textContent =
+    "🔎 VERIFICANDO CÓDIGO...";
 
-       nombre
-       codigo
-       confirmacion
-    */
 
-    fetch(
-      URL_REGISTRO,
-      {
+  /* =================================================
+     PRIMERO VERIFICAMOS SI YA FUE UTILIZADO
+  ================================================= */
 
-        method:
-          "POST",
+  verificarCodigo(
+    codigo,
+    function(resultado) {
 
-        mode:
-          "no-cors",
+      /* ERROR DE VERIFICACIÓN */
 
-        headers: {
-
-          "Content-Type":
-            "application/x-www-form-urlencoded"
-
-        },
-
-        body:
-          datos.toString()
-
-      }
-    )
-
-    .then(
-      function() {
-
-        /*
-           Con no-cors no podemos leer
-           la respuesta de Apps Script.
-
-           Por eso mostramos el resultado
-           después del envío.
-        */
-
-        mostrarResultado();
-
-      }
-    )
-
-    .catch(
-      function(error) {
-
-        console.error(
-          error
-        );
+      if (resultado.error) {
 
         alert(
-          "⚠️ Ocurrió un problema al enviar."
+          "⚠️ No se pudo verificar el código.\n\n" +
+          "Intenta nuevamente."
         );
 
-        btnConfirmar.disabled =
-          false;
+        btnConfirmar.disabled = false;
 
         btnConfirmar.textContent =
           "✅ CONFIRMAR";
 
-      }
-    );
+        return;
 
-  }
-);
+      }
+
+
+      /* CÓDIGO BLOQUEADO */
+
+      if (resultado.bloqueado) {
+
+        mostrarBloqueado(
+          nombre,
+          codigo
+        );
+
+        btnConfirmar.disabled = false;
+
+        btnConfirmar.textContent =
+          "✅ CONFIRMAR";
+
+        return;
+
+      }
+
+
+      /* =================================================
+         CÓDIGO DISPONIBLE
+      ================================================= */
+
+      btnConfirmar.textContent =
+        "⏳ GUARDANDO...";
+
+
+      const datos =
+        new URLSearchParams();
+
+
+      datos.append(
+        "nombre",
+        nombre
+      );
+
+
+      datos.append(
+        "codigo",
+        codigo
+      );
+
+
+      datos.append(
+        "confirmacion",
+        tipoConfirmacion
+      );
+
+
+      fetch(
+        URL_REGISTRO,
+        {
+          method: "POST",
+
+          mode: "no-cors",
+
+          headers: {
+            "Content-Type":
+              "application/x-www-form-urlencoded"
+          },
+
+          body:
+            datos.toString()
+        }
+      )
+
+      .then(
+        function() {
+
+          mostrarResultado();
+
+        }
+      )
+
+      .catch(
+        function(error) {
+
+          console.error(error);
+
+          alert(
+            "⚠️ Ocurrió un problema al enviar."
+          );
+
+          btnConfirmar.disabled = false;
+
+          btnConfirmar.textContent =
+            "✅ CONFIRMAR";
+
+        }
+      );
+
+    }
+  );
+
+});
 
 
 /* =====================================================
@@ -2307,14 +583,12 @@ btnConfirmar.addEventListener(
 
 function mostrarResultado() {
 
-  formulario.style.display =
-    "none";
+  formulario.style.display = "none";
+
+  bloqueado.style.display = "none";
 
 
-  if (
-    tipoConfirmacion ===
-    "Sí"
-  ) {
+  if (tipoConfirmacion === "Sí") {
 
     resultadoExito.style.display =
       "block";
@@ -2333,8 +607,7 @@ function mostrarResultado() {
   }
 
 
-  btnConfirmar.disabled =
-    false;
+  btnConfirmar.disabled = false;
 
   btnConfirmar.textContent =
     "✅ CONFIRMAR";
@@ -2342,6 +615,3 @@ function mostrarResultado() {
 }
 
 </script>
-
-</body>
-</html>
