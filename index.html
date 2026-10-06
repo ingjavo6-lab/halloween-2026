@@ -519,24 +519,51 @@
 
     function confirmarAsistencia() {
 
-      const campo =
-        document.getElementById("nombre");
+  const campo = document.getElementById("nombre");
+  const nombre = campo.value.trim();
 
-      const nombre =
-        campo.value.trim();
+  if (nombre === "") {
+    alert("Por favor escribe tu nombre 🎃");
+    campo.focus();
+    return;
+  }
 
+  const URL_REGISTRO =
+    "https://script.google.com/macros/s/AKfycbxPcMHt5DSGVy4YAsIKPuudROuJ8aN0Db3ubTttFl0lrGCWUzBlJdYf6LosTB_SBFIRqg/exec";
 
-      if (nombre === "") {
+  const datos =
+    "nombre=" + encodeURIComponent(nombre);
 
-        alert(
-          "Por favor escribe tu nombre 🎃"
-        );
+  fetch(URL_REGISTRO, {
+    method: "POST",
+    mode: "no-cors",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded"
+    },
+    body: datos
+  });
 
-        campo.focus();
+  const mensaje =
+    document.getElementById("mensajeExito");
 
-        return;
+  mensaje.innerHTML =
+    "¡Gracias, <strong>" +
+    nombre +
+    "</strong>! 👻<br><br>" +
+    "Tu asistencia quedó registrada.";
 
-      }
+  document.getElementById("formulario")
+    .style.display = "none";
+
+  document.getElementById("exito")
+    .style.display = "block";
+
+  document.getElementById("exito")
+    .scrollIntoView({
+      behavior: "smooth",
+      block: "center"
+    });
+}
 
 
       const mensaje =
