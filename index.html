@@ -12,11 +12,13 @@
 
   <title>Fiesta de Halloween 🎃</title>
 
+
   <style>
 
     * {
       box-sizing: border-box;
     }
+
 
     body {
 
@@ -166,42 +168,6 @@
 
 
     /* =========================
-       UBICACIÓN
-    ========================= */
-
-    .ubicacion {
-
-      margin-top: 20px;
-
-      padding: 18px;
-
-      border-radius: 18px;
-
-      background:
-        rgba(30, 10, 40, 0.85);
-
-      border: 1px solid #7a00ff;
-
-    }
-
-
-    .ubicacion h2 {
-
-      color: #ff6a00;
-
-      margin-top: 0;
-
-    }
-
-
-    .ubicacion p {
-
-      line-height: 1.5;
-
-    }
-
-
-    /* =========================
        BOTONES
     ========================= */
 
@@ -213,7 +179,7 @@
 
       gap: 14px;
 
-      margin-top: 25px;
+      margin-top: 30px;
 
     }
 
@@ -257,7 +223,9 @@
     }
 
 
-    /* ASISTIRÉ */
+    /* =========================
+       ASISTIRÉ
+    ========================= */
 
     .asistire {
 
@@ -269,7 +237,9 @@
     }
 
 
-    /* NO PODRÉ */
+    /* =========================
+       NO PODRÉ ASISTIR
+    ========================= */
 
     .no-asistire {
 
@@ -281,7 +251,9 @@
     }
 
 
-    /* UBICACIÓN */
+    /* =========================
+       VER UBICACIÓN
+    ========================= */
 
     .ubicacion-boton {
 
@@ -366,13 +338,14 @@
       border-color: #25D366;
 
       box-shadow:
-        0 0 10px
-        rgba(37, 211, 102, 0.5);
+        0 0 10px rgba(37, 211, 102, 0.5);
 
     }
 
 
-    /* CONFIRMAR */
+    /* =========================
+       CONFIRMAR
+    ========================= */
 
     .confirmar {
 
@@ -397,7 +370,9 @@
     }
 
 
-    /* CANCELAR */
+    /* =========================
+       CANCELAR
+    ========================= */
 
     .cerrar {
 
@@ -466,7 +441,7 @@
 
 
     /* =========================
-       NO ASISTENCIA
+       NO ASISTIRÁ
     ========================= */
 
     .rechazo {
@@ -515,7 +490,7 @@
 
     <!-- =========================
          ENCABEZADO
-    ========================== -->
+    ========================= -->
 
     <div class="luna">
 
@@ -541,8 +516,8 @@
 
 
     <!-- =========================
-         DATOS
-    ========================== -->
+         DATOS DEL EVENTO
+    ========================= -->
 
     <section class="datos">
 
@@ -564,7 +539,7 @@
 
     <!-- =========================
          DISFRAZ
-    ========================== -->
+    ========================= -->
 
     <div class="disfraz">
 
@@ -589,45 +564,13 @@
 
 
     <!-- =========================
-         UBICACIÓN
-    ========================== -->
-
-    <section class="ubicacion">
-
-      <h2>
-
-        📍 UBICACIÓN
-
-      </h2>
-
-
-      <p>
-
-        Cerca de Av. Vía Gustavo Baz
-
-        <br>
-
-        y C. José María Morelos
-
-        <br>
-
-        Habitacional, 54020
-
-        <br>
-
-        Tlalnepantla, Méx.
-
-      </p>
-
-    </section>
-
-
-    <!-- =========================
          BOTONES
-    ========================== -->
+    ========================= -->
 
     <div class="botones">
 
+
+      <!-- ASISTIRÉ -->
 
       <button
         type="button"
@@ -639,6 +582,8 @@
       </button>
 
 
+      <!-- NO PODRÉ ASISTIR -->
+
       <button
         type="button"
         class="boton no-asistire"
@@ -649,12 +594,14 @@
       </button>
 
 
+      <!-- VER UBICACIÓN -->
+
       <button
         type="button"
         class="boton ubicacion-boton"
         id="btnUbicacion">
 
-        📍 ENVIAR UBICACIÓN
+        📍 VER UBICACIÓN
 
       </button>
 
@@ -664,7 +611,7 @@
 
     <!-- =========================
          FORMULARIO
-    ========================== -->
+    ========================= -->
 
     <div
       id="formulario"
@@ -680,7 +627,7 @@
 
       <p id="textoFormulario">
 
-        Queremos saber quién viene a la fiesta.
+        Escribe tu nombre para confirmar.
 
       </p>
 
@@ -718,8 +665,8 @@
 
 
     <!-- =========================
-         ÉXITO
-    ========================== -->
+         MENSAJE ASISTENCIA
+    ========================= -->
 
     <div
       id="exito"
@@ -744,8 +691,8 @@
 
 
     <!-- =========================
-         NO ASISTIRÁ
-    ========================== -->
+         MENSAJE NO ASISTENCIA
+    ========================= -->
 
     <div
       id="rechazo"
@@ -774,13 +721,13 @@
 
   <!-- =========================
        JAVASCRIPT
-  ========================== -->
+  ========================= -->
 
   <script>
 
 
     /* =====================================
-       URL GOOGLE APPS SCRIPT
+       GOOGLE APPS SCRIPT
     ===================================== */
 
     const URL_REGISTRO =
@@ -788,7 +735,7 @@
 
 
     /* =====================================
-       UBICACIÓN GOOGLE MAPS
+       GOOGLE MAPS
     ===================================== */
 
     const URL_MAPS =
@@ -796,14 +743,14 @@
 
 
     /* =====================================
-       VARIABLES
+       TIPO DE RESPUESTA
     ===================================== */
 
     let tipoConfirmacion = "Sí";
 
 
     /* =====================================
-       BOTÓN ASISTIRÉ
+       ASISTIRÉ
     ===================================== */
 
     document
@@ -832,28 +779,30 @@
 
 
         document
-          .getElementById("rechazo")
+          .getElementById("exito")
           .style.display = "none";
 
 
         document
-          .getElementById("exito")
+          .getElementById("rechazo")
           .style.display = "none";
 
 
         document
           .getElementById("formulario")
           .scrollIntoView({
+
             behavior: "smooth",
+
             block: "center"
+
           });
 
-
-    });
+      });
 
 
     /* =====================================
-       BOTÓN NO PODRÉ ASISTIR
+       NO PODRÉ ASISTIR
     ===================================== */
 
     document
@@ -894,16 +843,18 @@
         document
           .getElementById("formulario")
           .scrollIntoView({
+
             behavior: "smooth",
+
             block: "center"
+
           });
 
-
-    });
+      });
 
 
     /* =====================================
-       BOTÓN UBICACIÓN
+       VER UBICACIÓN
     ===================================== */
 
     document
@@ -915,7 +866,7 @@
           "_blank"
         );
 
-    });
+      });
 
 
     /* =====================================
@@ -930,7 +881,7 @@
           .getElementById("formulario")
           .style.display = "none";
 
-    });
+      });
 
 
     /* =====================================
@@ -1096,9 +1047,7 @@
 
         }
 
-
-    });
-
+      });
 
   </script>
 
