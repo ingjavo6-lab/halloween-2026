@@ -1,105 +1,20 @@
-<!DOCTYPE html>
-<html lang="es">
 <head>
-  <!-- =========================================================
-       ARCHIVOS EXTERNOS
-       - style.css: diseño, colores, botones y versión móvil.
-       - app.js: validación de códigos y conexión con Apps Script.
-  ========================================================== -->
-  <link rel="stylesheet" href="./css/style.css">
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="theme-color" content="#050505">
+
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+>
+
+<meta
+  name="theme-color"
+  content="#050505"
+>
+
 <title>Halloween 2026 | Invitación privada</title>
+
+<!-- CSS DEL PROYECTO -->
+<link rel="stylesheet" href="./css/style.css">
+
 </head>
-<body>
-<div class="noise"></div>
-
-<div id="intro">
-  <div class="intro-box">
-    <div class="intro-skull">☠️</div>
-    <h1>HALLOWEEN<br><span style="color:var(--orange)">2026</span></h1>
-    <p>Invitación privada. Entra si te atreves.</p>
-    <button class="btn btn-green intro-btn" onclick="entrarFiesta()">☠️ ENTRAR A LA FIESTA</button>
-  </div>
-</div>
-
-<main class="page">
-  <nav class="topbar">
-    <a href="#evento">FIESTA</a><span class="dot">●</span>
-    <a href="#disfraz">DISFRAZ</a><span class="dot">●</span>
-    <a href="#fiesta">AMIGOS</a><span class="dot">●</span>
-    <a href="#musica">MÚSICA</a><span class="dot">●</span>
-    <a href="#evento" class="green">HALLOWEEN 2026</a>
-  </nav>
-
-  <section class="hero">
-    <div class="hero-inner">
-      <div class="crown">♛</div>
-      <h1>HALLOWEEN</h1>
-      <h2>2026</h2>
-      </div>
-  </section>
-
-  <section class="access" id="evento">
-    <div class="access-copy">
-      <div class="section-title">CONFIRMA<br><span class="green">TU ASISTENCIA</span></div>
-      <p>Ingresa el código secreto que recibiste con tu invitación para acceder a tu registro.</p>
-      <span class="access-note">🔐 Código personal e intransferible</span>
-    </div>
-    <div class="access-form">
-      <label class="form-label" for="codigo">Tu código secreto</label>
-      <input id="codigo" class="code-input" maxlength="8" autocomplete="off" inputmode="text" placeholder="WEEN1234" oninput="this.value=this.value.toUpperCase()">
-      <button id="btnEntrar" class="btn btn-green" onclick="verificarAcceso()">ENTRAR →</button>
-      <div id="loading" class="loading">🔎 VERIFICANDO CÓDIGO...</div>
-      <div id="guestPanel" class="guest-panel">
-        <div id="guestName" class="guest-name"></div>
-        <div class="guest-help">Confirma tu respuesta para Halloween 2026:</div>
-        <div class="response-buttons">
-          <button class="yes" onclick="registrar('Sí')">🎃 ASISTIRÉ</button>
-          <button class="no" onclick="registrar('No')">👻 NO PODRÉ ASISTIR</button>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="successBox" class="status success">
-    <h3>🎃 ¡ASISTENCIA CONFIRMADA!</h3><p id="successText">¡Nos vemos en Halloween!</p>
-  </section>
-
-  <section id="blockedBox" class="status blocked">
-    <h3>🔒 YA REGISTRASTE TU RESPUESTA</h3>
-    <p>Este código ya tiene una respuesta registrada para Halloween 2026.</p>
-    <a id="whatsappBtn" class="wa" target="_blank" rel="noopener">📲 SOLICITAR CAMBIO POR WHATSAPP</a>
-  </section>
-
-  <section id="errorBox" class="status error">
-    <h3>🔒 ACCESO DENEGADO</h3><p id="errorText">No fue posible validar el código.</p>
-  </section>
-
-  <section class="event-grid" id="fiesta">
-    <div class="info-card"><div class="info-icon">📅</div><div class="info-label">Fecha</div><div class="info-main">6 Noviembre</div><div>2026</div></div>
-    <div class="info-card"><div class="info-icon">🕐</div><div class="info-label">Hora</div><div class="info-main">7:00 PM</div></div>
-    <div class="info-card"><div class="info-icon">📍</div><div class="info-label">Lugar</div><div class="info-main" style="font-size:18px">Tlalnepantla</div><div>Estado de México</div></div>
-    <div class="info-card" id="disfraz"><div class="info-icon">🎭</div><div class="info-label">Disfraz</div><div class="info-main">Obligatorio</div></div>
-  </section>
-
-  <section class="feature-grid">
-    <article class="feature"><div class="icon">🍺</div><h3>ES DE TRAJE</h3><p>Trae cerveza, botana, comida o algo para compartir.<br><br><strong class="green">Buena comida, bebidas y mucha diversión.</strong></p></article>
-    <article class="feature" id="musica"><div class="icon">🎵</div><h3>MÚSICA</h3><p>Amigos, disfraces, música y una noche inolvidable.<br><br><strong class="green">Prepárate para celebrar.</strong></p></article>
-    <article class="feature"><div class="icon">💀</div><h3>NOCHE ATERRADORA</h3><p>Luces, disfraces, monstruos y Halloween.<br><br><strong class="green">¿Te atreves?</strong></p></article>
-  </section>
-
-  <section class="map">
-    <h3>📍 ¿DÓNDE?</h3>
-    <div class="address">José Ma. Morelos 2, Habitacional, 54020 Tlalnepantla, Méx.</div>
-    <a href="https://www.google.com/maps/search/?api=1&query=José+Ma.+Morelos+2%2C+Habitacional%2C+54020+Tlalnepantla%2C+México" target="_blank" rel="noopener">📍 VER EN GOOGLE MAPS →</a>
-  </section>
-
-  <section class="final"><h2>¿TE <span>ATREVES?</span></h2></section>
-  <footer>☠️ Halloween 2026 · Prepárate para una noche aterradora ☠️</footer>
-</main>
-
-<audio id="musicaHalloween" loop preload="auto"><source src="./placidplace-spooky-halloween-effects-with-thunder-121665.mp3" type="audio/mpeg"></audio>
-</body>
-</html>
